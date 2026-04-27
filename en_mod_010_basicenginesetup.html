@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-au">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Basic Engine Setup (Modular)</title>
+    <style type="text/css">/*
+
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+
+Code licensed under the BSD License:
+
+http://developer.yahoo.net/yui/license.txt
+
+version: 2.6.0
+
+*/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}</style>
+    <style type="text/css">
+h1 {
+  font-size: 138.5%;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+h3 {
+  font-size: 108%;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+abbr, acronym {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  cursor: help;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ol, ul, dl {
+  margin-left: 2em;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+dl dd {
+  margin-left: 1em;
+}
+
+th, td {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+  -moz-border-top-colors: none;
+  border-top-colors: none;
+  -moz-border-right-colors: none;
+  border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-left-colors: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, fieldset, table, pre {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 12.25em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar:hover {
+  font-weight: normal;
+}
+
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
+.store:hover {
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
+  font-weight: normal;
+}
+
+.contact {
+  font-weight: normal;
+}
+
+.versionnum {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
+}
+
+.releasecontent {
+  font-size: medium;
+}
+
+.modrev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: small;
+  color: #3333ff;
+}
+
+.selectrev {
+  font-weight: normal;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
+}
+
+</style><meta name="author" content="Frank Mangui-ob">
+    <meta name="generator" content="BlueGriffon wysiwyg editor">
+    <meta name="keywords" content="basics,engine,setup, modular">
+    <meta name="description" content="The basics of setting up your Modular ECU to run your engine">
+  </head>
+  <body>
+    <div id="doc" class="yui-t7">
+      <div id="hd"><br>
+      </div>
+      <div class="navbar"><br>
+      </div>
+      <div class="navbar" id="downloads">&nbsp;&nbsp;&nbsp; <span style="color: white;"
+
+
+            style="color: white;" class="downloads" id="top">DOWNLOADS</a>&nbsp;&nbsp;&nbsp;
+
+            style="color: white;" class="store">STORE</a>&nbsp;&nbsp;&nbsp; <a
+
+href=2 target=_blank style=color: white;
+
+            class="contact">CONTACT US</a></span></div>
+      <div class="navbar"><br>
+      </div>
+      <div><br>
+      </div>
+      <div id="bd">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <p class="Pagetitle">Basic Engine Setup on Modular ECUs</p>
+
+                support home</a></p>
+          </div>
+          <div class="yui-u" style="text-align: left;">
+
+          </div>
+        </div>
+        <div class="yui-gf" style="font-size: small;">
+          <div class="yui-u first"><br>
+
+                triggering in Modular ECUs<br>
+              </a></p>
+
+                Grounding tips<br>
+              </a></p>
+            <p class="selectrev"><br>
+            </p>
+
+              </a></p>
+            <p class="releasedate"><br>
+            </p>
+            <p class="releasedate"><br>
+            </p>
+          </div>
+
+                  allow="autoplay; encrypted-media" allowfullscreen="" height="315"
+
+                  frameborder="0" width="560"></iframe> </small></span>
+            <div class="yui-u"><span><small><br>
+                  This article describes the basic engine setup of the Modular
+                  ECUs.<br>
+                  <br>
+                  It’s from this that the ECU works out the majority of what it
+                  needs to run the engine, so this has to be right. If it’s not
+                  right, you’ll make your life harder and that’s the opposite of
+                  what we’re trying to do.<br>
+                  <br>
+
+                    alt="enginetab" style="margin: 0px 0px 10px; max-width: 100%; display: inline; width: 557px; height: 303px;"><br>
+                  <br>
+                  The (a) first tab we’ll look at is the “Engine” one. Select
+                  this, (b) and go into the “Details” section. This brings up a
+                  window where you can select some really basic information
+                  about the engine.<br>
+                  <br>
+                  The first is (c) engine capacity, in ccs (cubic centimetres,
+                  or mL – or get litres and multiply by 1000, so 2000 for a 2L
+                  engine). If you don’t know what this is already but you know
+                  the engine type, you can normally find it online somewhere.
+                  This is the actual swept volume, we’re not doing any tricks
+                  like doubling it for a 2-stroke or anything like that.<br>
+                  <br>
+                  The next setting is the (d) number of cylinders or rotors, eg
+                  6 for a JZ or 2 for a 13B. Pretty self explanatory. The only
+                  time this would need to change is if you’re trying to
+                  duplicate outputs to do something like running 8 methanol
+                  injectors per rotor on a 13B, you could in that case tell the
+                  ECU that it was a 4 rotor engine but they fire in pairs at the
+                  same time, which would have the effect of driving injectors in
+                  pairs but give you a separate output per injector, which you
+                  need for low impedance injectors.<br>
+                  <br>
+                  The (e) next setting is “separate banks”. If this is enabled,
+                  then the engine is considered by the ECU to have two halves,
+                  and all the fuel calculations including things like predicted
+                  MAP, fuel film modelling and so on are done twice. Each bank
+                  can have its own intake MAP sensor and/or EMAP sensor and you
+                  can run independent closed loop boost control for each. This
+                  is particularly useful on dual-plenum engines, because they
+                  never balance as well as you’d expect them to. If this mode is
+                  enabled, you have the choice to either describe the banks as
+                  (f) odd and even, or first half and second half, which allows
+                  you to use the “standard” naming convention for the engine.
+                  But it also allows you to do the same thing to treat the front
+                  and back halves of an inline-6 independently; for example on
+                  the GTR each half has its own turbocharger and oxygen sensor,
+                  or on a 2-rotor you can do the same thing.<br>
+                  <br>
+                  Finally, the (g) firing mode can either be 4-stroke or
+                  2-stroke. A stroke is defined as the distance travelled from
+                  top dead centre to bottom dead centre, so 2-stroke means that
+                  the engine performs a combustion event every 2 strokes, or 360
+                  degrees. 4-stroke means that the engine performs a combustion
+                  event every 4 strokes, or 720 crank degrees. Both
+                  configurations still must perform the suck-squeeze-bang-blow
+                  sequence because that’s how the Otto and Diesel cycles are
+                  defined. Note that this does not directly affect the ignition
+                  output sequence, which will be configured later, but it does
+                  affect whether the injectors are fired every 360 or 720 crank
+                  degrees, and also affects calculations such as the fuel film
+                  changes. So on a 2-stroke piston or a rotary engine, select
+                  360° / 2-stroke – otherwise for a 4-stroke piston engine
+                  select 720 ° / 4-stroke<br>
+                  <br>
+                  The next section we will cover is the outputs, ie what the ECU
+                  actually controls, particularly the injector and ignition
+                  outputs.<br>
+                  <br>
+
+                    alt="outputstab" style="margin: 0px 0px 10px; max-width: 100%; display: inline; width: 557px; height: 277px;"><br>
+                  <br>
+                  (a) Go to the “outputs” tab, and (b) then select “fuel system”
+                  from the injection panel. This is where we enter the basics
+                  about the fuel system.<br>
+                  <br>
+                  The (c) first setting, manifold referenced or fixed, is
+                  whether the fuel pressure has a constant differential
+                  pressure, ie the fuel pressure reg is manifold referenced, or
+                  if the fuel pressure has a constant gauge pressure, ie no
+                  manifold reference. Often this is incorrectly described as
+                  dead-head or return style system, but there is nothing
+                  stopping you from running a manifold referenced dead-head
+                  system or a return style system with no manifold reference.
+                  Generally we prefer to see manifold-referenced systems so that
+                  the injector behavior is more consistent but the ECU can
+                  handle either in the fuel model.<br>
+                  <br>
+
+                    alt="rf" style="margin: 0px auto 10px; max-width: 100%; display: block; width: 234px; height: 303px;"><br>
+                  <br>
+                  <em>Fixed Pressure Regulator</em><br>
+                  <br>
+
+                    alt="mf" style="margin: 0px auto 10px; max-width: 100%; display: block; width: 300px; height: 354px;"><br>
+                  <br>
+                  <em>Manifold Referenced</em><br>
+                  <br>
+                  The type that the ECU doesn’t support, unless you have a fuel
+                  pressure sensor, is the rising rate fuel pressure regulator;
+                  in this pressure regulator the differential fuel pressure
+                  increases with manifold pressure. For example for every 10 kPa
+                  of manifold pressure increase, the gauge fuel pressure might
+                  increase 20 kPa, which means that the differential fuel
+                  pressure has increased by 10 kPa instead of being constant. If
+                  you have a fuel pressure sensor the ECU can handle this
+                  though.<br>
+                  <br>
+                  <span style="text-decoration: none;"><img class="alignnone size-medium wp-image-5297"
+
+
+                  <br>
+                  <span style="text-decoration: none;"><img class="alignnone wp-image-5296 size-full"
+
+
+                  <br>
+                  The (d) next setting is the nominal fuel pressure. Normally
+                  this should be set to the minimum that you see at the full
+                  power condition. If the ECU detects a failure in the fuel
+                  pressure sensor, it will reference this value instead. In a
+                  manifold-referenced system, this is the differential fuel
+                  pressure, as you can see by the units being kPaD (or PSId in
+                  Imperial units). In a fixed pressure system, this is the gauge
+                  fuel pressure, the units being kPaG or PSIg. A typical fuel
+                  pressure is about 3 bar for manifold referenced and 4 bar for
+                  fixed fuel pressure.<br>
+                  <br>
+                  The next option, (e) fuel pressure modelling, tells the ECU
+                  how to work out the fuel pressure; either from a fuel pressure
+                  sensor, or from the nominal fuel pressure setting. If there’s
+                  a fuel pressure sensor, we would recommend using the sensor.<br>
+                  <br>
+                  The next checkbox is to (f) trim for fuel density. Again we
+                  would recommend to have this turned ON, because it means that
+                  fuel temperature changes will be accounted for in the
+                  calculations. The coefficient of expansion of fuel is
+                  different between E85 and E0 so this is taken into account
+                  also. The fuel temperature can either be taken from a
+                  dedicated fuel temperature sensor, or it can be read from the
+                  ethanol sensor if equipped (because it tells the ECU
+                  temperature and ethanol percentage), or it can be modelled
+                  from the engine temperature. The ECU assumes some heat soak
+                  and that the fuel temperature will start off at engine
+                  temperature but eventually stabilise. If you prefer to model
+                  this yourself you can disable this feature and trim it using
+                  the post crank enrichment table.<br>
+                  <br>
+                  If you now click on the “injector staging” button you can set
+                  up the staged injection. If you aren’t running staged
+                  injection, just set the number of stages to 1 and that’s all
+                  you need to do. Otherwise, set the number of stages you’re
+                  using and set the off-time for each stage – we normally
+                  recommend 2 ms as enough time for the injector to fully close
+                  so that when you open it again it delivers the correct amount
+                  of fuel.<br>
+                  <br>
+                  <span style="text-decoration: none;"><img class="alignnone wp-image-5300 size-large"
+
+src=2 alt=injstaging
+
+                      style="border: 3px solid; margin: 0px 0px 10px; max-width: 100%; display: inline; width: 561px; height: 323px;"></span><br>
+                  <br>
+                  Next, in the injection panel select “injector type”. For each
+                  stage of injectors you have, you will need to select the
+                  injector type from the dropdown list. If your injector isn’t
+                  in there, then you will need to select “custom” and enter the
+                  dead times and flow rates against fuel pressure (and battery
+                  voltage as well for dead time) manually.<br>
+                  <br>
+                  <span style="text-decoration: none;"><img class="alignnone wp-image-5303 size-large"
+
+src=2 alt=injtype
+
+                      style="border: 3px solid; margin: 0px 0px 10px; max-width: 100%; display: inline; width: 561px; height: 315px;"></span><br>
+                  <br>
+                  Now that we have fully described the fuel system, we need to
+                  tell the ECU about the ignition system. The first step is to
+                  go to “Output control” in the “Ignition” panel. From there,
+                  the first thing is to select the ignition output mode.<br>
+                  <br>
+
+                    alt="ign" style="margin: 0px 0px 10px; max-width: 100%; display: inline; width: 557px; height: 304px;"><br>
+                  <br>
+                  For a rotary, or an engine with two spark plugs per cylinder,
+                  there are a few different modes available:<br>
+                  <br>
+                  Direct fire, rotary / 2 plugs per cylinder with split angle is
+                  the most simple and just uses a single coil per plug. In this
+                  mode, you must select the firing pattern as well, which will
+                  be 720 degrees on a 4-stroke and 360 degrees on a rotary or a
+                  2-stroke. If you don’t have a cam trigger on a 4-stroke, you
+                  will need to fire the ignition every 360 degrees. And a cool
+                  feature is the option to fire every 360 degrees until a cam
+                  signal is detected where it switches over to 720 degrees.<br>
+                  <br>
+                  FD: wasted leading, direct fire trailing – for the factory
+                  ignition system on the RX7 FD<br>
+                  <br>
+                  FC: wasted leaning, address mode trailing – factory ignition
+                  system on the RX7 FC<br>
+                  <br>
+                  For a single plug per cylinder, the following modes are
+                  available:<br>
+                  <br>
+                  Direct fire, single plug per cylinder. In this mode the ECU
+                  allocates one ignition output per cylinder. The ignition
+                  firing pattern must be set to 720, 360 or 360 then switch to
+                  720 with cam information.<br>
+                  <br>
+                  Wasted spark. In this mode, only one output is used for every
+                  2 coils, and the firing pattern needs to be set to every 360
+                  degrees. This works for 4 cylinder, 6 cylinder and 8 cylinder
+                  flat plane engines. For 8 cylinder crossplane engines, the
+                  cylinder mapping needs to be different so that ignition
+                  outputs 1-4 correspond to the 4 separate pairs.<br>
+                  <br>
+                  Single distributor. In this mode, only a single output is
+                  enabled. The firing pattern is set automatically based on the
+                  firing frequency of the engine (720 or 360) and the number of
+                  cylinders.<br>
+                  <br>
+                  Twin distributor. In this mode, two outputs are used; the
+                  first being the one for cylinder 1 and the other for the other
+                  distributor. Again the firing pattern is set automatically in
+                  this mode.<br>
+                  <br>
+                  The next setting to check is the ignition sense. This should
+                  normally be “falling edge (normal)”. Very few systems require
+                  a rising edge, and if so then you should know about it and
+                  have seen the waveform on a scope for yourself. Setting an
+                  output to rising edge when it should be falling edge can burn
+                  out ignitors and ignition coils.<br>
+                  <br>
+                  The dwell time table can now be set, as a function of engine
+                  speed and battery voltage.<br>
+                  <br>
+                  Lastly, but definitely not least, is the set of period angle
+                  offsets. These are found in the “Ignition” panel again. These
+                  period angle offsets are the number of degrees after TDC
+                  ignition cylinder 1 that each of those cylinders gets its TDC
+                  ignition.<br>
+                  <br>
+                  <span style="text-decoration: none;"><img class="alignnone wp-image-5306 size-large"
+
+src=2 alt=periodangle
+
+                      style="border: 3px solid; margin: 0px 0px 10px; max-width: 100%; display: inline; width: 561px; height: 296px;"></span><br>
+                  <br>
+                  For example, if your firing order is 1-3-4-2 on a 4 stroke
+                  piston engine, the firing order angles are:<br>
+                  <br>
+                  0, -180, 180, 360<br>
+                  <br>
+                  This period angle offset is used for the injection timing as
+                  well as ignition.<br>
+                  <br>
+                  Here are the samples of different ignition output waveforms:<br>
+                </small></span>
+              <div id="attachment_5678" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5678"
+
+src=2
+
+                        alt="singledist" style="border: 3px solid; max-width: 100%; width: 300px; height: 199px;"></span><br>
+                  </small></span> <span><small><br>
+                    2JZGET_SingleDistributor<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5679" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 232px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5679"
+
+src=2
+
+                        alt="2jzdf" style="border: 3px solid; max-width: 100%; width: 300px; height: 406px;"></span><br>
+                  </small></span> <span><small><br>
+                    2JZGTE_Directfiresingleplug<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5680" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5680"
+
+src=2
+
+                        alt="2jzdirect" style="border: 2px solid; max-width: 100%; width: 300px; height: 210px;"></span><br>
+                  </small></span> <span><small><br>
+                    2JZGTE_DirectRotary<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5681" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5681"
+
+src=2
+
+                        alt="2jzwasted" style="border: 3px solid; max-width: 100%; width: 300px; height: 273px;"></span><br>
+                  </small></span> <span><small><br>
+                    2JZGTE_WastedSpark<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5682" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; color: rgb(102, 102, 102); font-family: Arial, Helvetica, sans-serif; font-size: 14px; width: 310px;"><span><small><span
+
+                      style="color: rgb(83, 151, 180); text-decoration: none;"><img
+
+src=2
+
+                        alt="fc" style="border: 3px solid; max-width: 100%; width: 300px; height: 217px;"></span>
+                    <br>
+                    FC<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5683" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5683"
+
+
+                  </small></span> <span><small><br>
+                    FD<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5684" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5684"
+
+src=2
+
+                        alt="nissan6wasted" style="border: 2px solid; max-width: 100%; width: 300px; height: 277px;"></span><br>
+                  </small></span> <span><small><br>
+                    Nissan6-WastedSpark<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5685" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 227px; color: rgb(2, 2, 2); font-family: Tahoma;">
+                <span><small><br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5685"
+
+src=2
+
+                        alt="nissan6direct" style="border: 3px solid; max-width: 100%; width: 217px; height: 300px;"></span><br>
+                  </small></span> <span><small><br>
+                    Nissan6-DirectFiresingleplug<br>
+                  </small></span> </div>
+              <span><small> </small></span>
+              <div id="attachment_5686" class="wp-caption alignnone" style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); padding: 5px; text-align: center; font-size: 14px; width: 310px; color: rgb(2, 2, 2); font-family: Tahoma;"><span><small>
+                    <br>
+                    <span style="text-decoration: none;"><img class="size-medium wp-image-5686"
+
+src=2
+
+                        alt="nissan6dist" style="border: 3px solid; max-width: 100%; width: 300px; height: 142px;"></span><br>
+                    <br>
+                    Nissan6-SingleDistributor</small></span><br>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ft">
+        <hr style="color: #990000; margin-left: auto; margin-right: auto;">©2018
+        Adaptronic</div>
+      <div><br>
+      </div>
+    </div>
+  </body>
+</html>

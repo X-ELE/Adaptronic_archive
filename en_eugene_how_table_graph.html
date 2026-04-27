@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-au">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Eugene Table and Graph How To's</title>
+    <style type="text/css">/*
+
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+
+Code licensed under the BSD License:
+
+http://developer.yahoo.net/yui/license.txt
+
+version: 2.6.0
+
+*/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}</style>
+    <style type="text/css">
+h1 {
+  font-size: 138.5%;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+h3 {
+  font-size: 108%;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+abbr, acronym {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  cursor: help;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ol, ul, dl {
+  margin-left: 2em;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+dl dd {
+  margin-left: 1em;
+}
+
+th, td {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+  -moz-border-top-colors: none;
+  border-top-colors: none;
+  -moz-border-right-colors: none;
+  border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-left-colors: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, fieldset, table, pre {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 12.25em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar:hover {
+  font-weight: normal;
+}
+
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
+.store:hover {
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
+  font-weight: normal;
+}
+
+.contact {
+  font-weight: normal;
+}
+
+.versionnum {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
+}
+
+.releasecontent {
+  font-size: medium;
+}
+
+.modrev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: small;
+  color: #3333ff;
+}
+
+.selectrev {
+  font-weight: normal;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
+}
+
+</style><meta name="author" content="Frank Mangui-ob">
+    <meta name="generator" content="BlueGriffon wysiwyg editor">
+    <meta name="keywords" content="eugene,table,graph,3d,textmap,2D">
+    <meta name="description" content="A tutorial on how to manipulate tables and graphs in Eugene.">
+  </head>
+  <body>
+    <div id="doc" class="yui-t7">
+      <div id="hd"><br>
+      </div>
+      <div class="navbar"><br>
+      </div>
+      <div class="navbar" id="downloads">&nbsp;&nbsp;&nbsp; <span style="color: white;"
+
+
+            style="color: white;" class="downloads" id="top">DOWNLOADS</a>&nbsp;&nbsp;&nbsp;
+
+            style="color: white;" class="store">STORE</a>&nbsp;&nbsp;&nbsp; <a
+
+href=2 target=_blank style=color: white;
+
+            class="contact">CONTACT US</a></span></div>
+      <div class="navbar"><br>
+      </div>
+      <div><br>
+      </div>
+      <div id="bd">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <p class="Pagetitle">How to Use Tables and Graphs</p>
+
+                home</a></p>
+          </div>
+          <div class="yui-u" style="text-align: left;">
+
+          </div>
+        </div>
+        <div class="yui-gf" style="font-size: small;">
+          <div class="yui-u first"><br>
+
+              </a></p>
+
+                shortcuts for tables and graphs<br>
+              </a></p>
+            <p class="selectrev"><br>
+            </p>
+
+              </a></p>
+            <p class="releasedate"><br>
+            </p>
+            <p class="releasedate"><br>
+            </p>
+          </div>
+          <div class="bodytxt1"><br>
+            <small> </small>
+            <div class="yui-u">
+              <ul>
+
+
+
+
+
+
+
+                      cell value a.k.a. Copy/Paste</a></small></li>
+
+
+              </ul>
+            </div>
+            <div class="yui-u">
+              <hr style="width: 100%; height: 2px;"><small><span style="font-weight: bold; font-family: Tahoma; color: red;"><span
+
+                    style="color: black;"><a name="Setting_up_axes" id="Setting_up_axes"></a>Setting
+                    up the axes</span></span></small></div>
+            <div class="yui-u"><small><span style="font-weight: bold; font-family: Tahoma; color: red;"><span
+
+                    style="color: black;"></span></span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;"></span></small><small><span
+
+                  style="font-family: Tahoma;">X and Y axes of the table may
+                  have different data types depending on which settings you're
+                  working on.. For example if you're working on a fuel map,
+                  X-axis has the RPM data type while the Y-axis has either MAP
+                  or TPS, depending on your load selection setup.</span></small><br>
+              <small><span style="font-family: Tahoma;"> </span></small><br>
+              <small><span style="font-family: Tahoma;"> 1. To start setting up
+                  the X-axis, right-click on the table (or graph) and choose
+                  'Change X-axis step size' from the pop-out menu. The axis
+                  configuration window will pop out.</span></small><br>
+              <small><span style="font-family: Tahoma;"> </span></small><br>
+              <small><span style="font-family: Tahoma;"> <img style="width: 517px; height: 477px;"
+
+
+              <small><span style="font-family: Tahoma;"> </span></small><br>
+              <small><span style="font-family: Tahoma;"> 2. You should be able
+                  to insert and delete entry points in the axis range, or set
+                  the maximum axis value and Eugene will work out each interval
+                  in the series. This fills out the maximum number of columns
+                  for X-axis (or rows for Y-axis).</span></small><br>
+              <small><span style="font-family: Tahoma;"> 3. Once everything is
+                  set, click OK. If an error is detected (e.g. duplicate
+                  netries, etc), fix the entry value and hit OK again.</span></small><br>
+              <small><span style="font-family: Tahoma;"> </span></small><br>
+
+                    top</a></span></small></div>
+            <div class="yui-u"><small><span style="font-family: Tahoma;"></span></small>
+              <hr style="color: #990000;"><small><span style="font-family: Tahoma;"></span></small><br>
+              <small><span style="font-family: Tahoma;"> </span></small><br>
+              <small><span style="font-family: Tahoma;"> </span></small><small
+
+                style="font-weight: bold; color: red;"><span style="font-family: Tahoma;"><a
+
+                    name="II._Inserting_cells"></a><span style="color: black;">Inserting
+                    cells</span></span></small><br>
+              <small><span style="font-family: Tahoma;">Inserting a row
+                  or&nbsp;column is easy!</span></small><br style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">1. Click on the table
+                  to select a cell.</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">2. Hit&nbsp;<span style="font-weight: bold;">INSERT</span>
+                  key to insert a column (or <span style="font-weight: bold;">SHIFT
+                    + INSERT</span> to insert a row).</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">3. A window will pop
+                  out to ask for the Column (or row) header value. The default
+                  value is usually the average between the activell cell column
+                  and the column to the right (or the active cell row and the
+                  row below).</span></small><br style="font-family: Tahoma;">
+              <small> <img style="font-family: Tahoma; width: 233px; height: 122px;"
+
+
+                style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">4. Hit OK when
+                  finished.</span></small><br>
+              <br>
+
+                    top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small style="font-weight: bold;"><span style="font-family: Tahoma;"><a
+
+                    name="III._Deleting_cells_"></a>Deleting cells</span></small><small><span
+
+                  style="color: red;"> </span></small><br>
+              <small> <span style="font-family: Tahoma;">Deleting cells are
+                  much easier! Unlike inserting cells, you can delete multiple
+                  columns or rows at one time.</span></small><br style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">1. Click (and drag) to
+                  selec the columns or rows to be deleted.</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">2. Hit <span style="font-weight: bold;">DELETE</span>
+                  key to delete columns (or <span style="font-weight: bold;">SHIFT
+                    + DELETE</span> to delete rows). &nbsp;A prompt window will
+                  pop out for the confirmation.</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">3. Hit YES to confirm.</span></small><br>
+              <small> </small><br>
+
+                    to top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small style="font-weight: bold;"><span style="font-family: Tahoma;"><a
+
+                    name="IV._Selecting_Cells"></a><span style="color: red;"><span
+
+                      style="color: black;">Selecting Cells</span></span></span></small><br>
+              <small><span style="font-family: Tahoma;">Navigating through the
+                  cells can be done by using mouse or arrow keys.</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> </small>
+              <ul>
+                <li><small><span style="font-family: Tahoma;">To select multiple
+                      cells, simply select the starting cell and then hold down
+                      <span style="font-weight: bold;">SHIFT</span> key while
+                      using the arrow keys. When using a mouse, simply drag
+                      while pressing&nbsp;left-mouse button. </span></small></li>
+              </ul>
+              <ul>
+                <li><small><span style="font-family: Tahoma;">Selecting the
+                      entire column or row is done using a mouse by clicking on
+                      the header. To select multiple columns or rows, just drag
+                      from the initial header while pressing left-muse button. </span></small></li>
+              </ul>
+
+                    top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small> </small><small style="font-weight: bold;"><span style="font-family: Tahoma;"><a
+
+                    name="IV._Data_Entry"></a>Data Entry</span></small><br>
+              <small><span style="font-family: Tahoma;">Only these are valid
+                  entries in data tables</span></small><br style="font-family: Tahoma;">
+              <small> </small>
+              <ul>
+                <li><small><span style="font-family: Tahoma;">Numbers 0-9</span></small></li>
+                <li><small><span style="font-family: Tahoma;">Decimal point ( .
+                      )</span></small><span style="font-family: Tahoma;"></span></li>
+                <li><small><span style="font-family: Tahoma;">Negative sign (
+                      -&nbsp;)</span></small><br>
+                </li>
+              </ul>
+              <small><span style="font-family: Tahoma;">After entering the
+                  number, hit ENTER key so Eugene can validate the entry ie
+                  checking within the preset minimum and maximum value. If an
+                  ECU is connected (online) the new values in the table are then
+                  written into the ECU.</span></small><br>
+              <small> </small><br>
+              <small> <em><span style="color: #cc0000;"><span style="font-family: Tahoma; font-weight: bold;">Tips:
+                      </span></span></em></small><em><span style="color: #cc0000;"><br
+
+                    style="font-family: Tahoma;">
+                  <small> <span style="font-family: Tahoma;">a. To invalidate
+                      an entry, press ESCAPE key to revert to previous cell
+                      value</span></small><br style="font-family: Tahoma;">
+                  <small> <span style="font-family: Tahoma;">b. To increment /
+                      decrement the cell's value, press PAGE UP or PAGE DOWN.
+                      When pressed while holding CTRL key down, the increment or
+                      decrement is the tenth of the default increment value</span></small></span></em><br>
+              <small> </small><br>
+
+                    to top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small style="font-weight: bold;"><span style="font-family: Tahoma;"><a
+
+                    name="V._Interpolation"></a>Interpolation</span></small><br>
+              <small><span style="font-family: Tahoma;">Use the interpolation
+                  function to blend parts of the map. There are 3 ways to do it:</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma; color: rgb(51, 51, 255);">1.
+                  Interpolate from Corner</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; a.
+                  Select&nbsp;group of cells (at least 3x3) in the table. To
+                  select all cells, press&nbsp;<span style="font-weight: bold;">W</span>
+                  (Select All).</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; b.
+                  Press <span style="font-weight: bold;">L</span> to start
+                  interpolation</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma; color: rgb(51, 51, 255);">2.
+                  Interpolate Columns</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; a.
+                  Select&nbsp;group of cells (at least 3 cells in a column) in
+                  the table. To select all cells, press&nbsp;<span style="font-weight: bold;">W</span>
+                  (Select All).</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; b.
+                  Press&nbsp;<span style="font-weight: bold;">Y</span> to start
+                  interpolation</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma; color: rgb(51, 51, 255);">3.
+                  Interpolate Rows</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; a.
+                  Select&nbsp;group of cells (at least 3 cells in a row) in the
+                  table. To select all cells, press&nbsp;<span style="font-weight: bold;">W</span>
+                  (Select All).</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; b.
+                  Press&nbsp;<span style="font-weight: bold;">X</span> to start
+                  interpolation</span></small><br>
+              <br>
+
+                    top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small style="font-weight: bold; color: red;"><span style="font-family: Tahoma;"><a
+
+                    name="VII._Duplicating_Cell_Values_a.k.a"></a><span style="color: black;">Duplicating
+                    Cell Value a.k.a Copy/Paste</span></span></small><br>
+              <small><span style="font-family: Tahoma;">There are two ways to do
+                  it</span></small><br style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">1.
+                  Conventional&nbsp;Copy and Paste</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; a.
+                  Select a cell or group of cells to be copied and then press <span
+
+                    style="font-weight: bold;">CTRL + C</span>.</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; b.
+                  Click on the cell where you want those values to be copied and
+                  then press <span style="font-weight: bold;">CTRL + V</span>.</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp;
+                  Note: If the size&nbsp;of the copied cells is 3x3 for example,
+                  it will be pasted to a 3x3 cell area as well. </span></small><br
+
+                style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">2. <span style="font-weight: bold; font-style: italic;">Speed
+                    Copy</span> - this mode copies the active cell value to its
+                  adjacent cell. This mode needs to be activated though by
+                  pressing&nbsp;<span style="font-weight: bold;">D</span>.</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; a.
+                  Copy single cell - click on the cell that will be copied, and
+                  then press <span style="font-weight: bold;">CTRL + ARROW</span>
+                  keys to start copying.</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; b.
+                  Copy entire column - click on the column header, and then
+                  press <span style="font-weight: bold;">CTRL + LEFT/RIGHT
+                    ARROW</span> key to start copying.</span></small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">&nbsp;&nbsp;&nbsp; c.
+                  Copy entrire row - click on the row header, and then press <span
+
+                    style="font-weight: bold;">CTRL + UP/DOWN ARROW</span> key
+                  to start copying.</span></small><br>
+              <br>
+
+                    top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small style="font-weight: bold;"><span style="font-family: Tahoma;"><a
+
+                    name="VIII._Map_Trace"></a>Map Trace</span></small><br>
+              <small><span style="font-family: Tahoma;">This function is only
+                  available when an ECU is connected and Eugene is reading gauge
+                  data out of the ECU. When this happens, the cross hair in the
+                  table will be shown, displaying the the axes' live data values
+                  from the ECU. Map trace function basically just maps out the
+                  cells that were previously active based on the axes' live
+                  data.</span></small><br style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">When this function is
+                  enabled (by pressing&nbsp;</span><span style="font-weight: bold; font-family: Tahoma;">T</span><span
+
+                  style="font-family: Tahoma;">), the active cells (both
+                  previous and current) are highlighted in color RED, except for
+                  fuel map tables which highlights are based on the
+                  leanness/richness of the average AFR vs. the target AFR</span></small>.<br>
+              <br>
+
+              <br>
+
+                    top</a></span></small><br>
+              <hr style="color: #990000;"><br>
+              <small><span style="font-family: Tahoma; font-weight: bold;"><a name="IX._Cell_Tagging"></a>Cell
+                  Tagging</span></small><br>
+              <small><span style="font-family: Tahoma;">When working with fuel
+                  maps, a cell can be tagged as "Tuned"&nbsp;or "Untuned".</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> </small><br style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">1. Select cells to be
+                  marked, either by using a mouse or by arrow keys.</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">2. Press <span style="font-weight: bold;">M</span>
+                  to mark cells as <span style="font-style: italic;">'</span><span
+
+                    style="font-weight: bold; font-style: italic;">Tuned</span><span
+
+                    style="font-style: italic;">"</span> or press <span style="font-weight: bold;">U</span>
+                  to mark cells as "<span style="font-weight: bold; font-style: italic;">Untuned</span>".</span></small><br
+
+                style="font-family: Tahoma;">
+              <small> <span style="font-family: Tahoma;">3. Tuned-marked cells
+                  will have a green font color to be distinguished among the
+                  rest.</span></small><br>
+              <br>
+
+
+                    top</span></small></a><br>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ft">
+        <hr style="color: #990000; margin-left: auto; margin-right: auto;">©2018
+        Adaptronic</div>
+      <div><br>
+      </div>
+    </div>
+  </body>
+</html>

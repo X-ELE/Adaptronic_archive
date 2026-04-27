@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-au">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Modular Firmware Revision History</title>
+    <style type="text/css">/*
+
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+
+Code licensed under the BSD License:
+
+http://developer.yahoo.net/yui/license.txt
+
+version: 2.6.0
+
+*/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}</style>
+    <style type="text/css">
+h1 {
+  font-size: 138.5%;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+h3 {
+  font-size: 108%;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+abbr, acronym {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  cursor: help;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ol, ul, dl {
+  margin-left: 2em;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+dl dd {
+  margin-left: 1em;
+}
+
+th, td {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+  -moz-border-top-colors: none;
+  border-top-colors: none;
+  -moz-border-right-colors: none;
+  border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-left-colors: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, fieldset, table, pre {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 12.25em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar:hover {
+  font-weight: normal;
+}
+
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
+.store:hover {
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
+  font-weight: normal;
+}
+
+.contact {
+  font-weight: normal;
+}
+
+.versionnum {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
+}
+
+.releasecontent {
+  font-size: medium;
+}
+
+.modrev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: small;
+  color: #3333ff;
+}
+
+.selectrev {
+  font-weight: normal;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: small;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.back {
+  font-size: small;
+}
+
+</style><meta name="author" content="Frank Mangui-ob">
+    <meta name="generator" content="BlueGriffon wysiwyg editor">
+    <meta name="keywords" content="modular,firmware,notes,revision,changelog">
+    <meta name="description" content="Changelog of past and current modular firmware releases.">
+  </head>
+  <body>
+    <div id="doc" class="yui-t7">
+      <div id="hd"><br>
+      </div>
+      <div class="navbar"><br>
+      </div>
+      <div class="navbar" id="downloads">&nbsp;&nbsp;&nbsp; <span style="color: white;"
+
+
+            style="color: white;" class="downloads">DOWNLOADS</a>&nbsp;&nbsp;&nbsp;
+
+            style="color: white;" class="store">STORE</a>&nbsp;&nbsp;&nbsp; <a
+
+href=2 target=_blank style=color: white;
+
+            class="contact">CONTACT US</a></span></div>
+      <div class="navbar"><br>
+      </div>
+      <div><br>
+      </div>
+      <div id="bd">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <p class="Pagetitle">Modular Firmware Revision History</p>
+
+                back to support home</a></p>
+          </div>
+          <div class="yui-u" style="text-align: left;">
+
+          </div>
+        </div>
+        <div class="yui-gf" style="font-size: smaller;">
+          <div class="yui-u first"><br>
+
+                release notes.<br>
+              </a></p>
+
+                changelog history.</a></p>
+
+                firmware changelog history.</a></p>
+            <br>
+          </div>
+          <br>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.085</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2021-Apr-23</i></strong></strong> </div>
+          <div class="yui-u">
+            <ul>
+              <li>Added two new European CAN ABS modes for RX8</li>
+              <li>Changed closed loop fuel condition to Load1 instead of IMAP</li>
+              <li>Added support for the LS2 trigger to support 4 channels of the
+                2-Long 2-Short cam triggers</li>
+              <li>Improved ignition output code</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.084</strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><i>Release
+                  2020-Nov-16</i></strong></strong>
+            <ul>
+              <li>Turbo timer improved.</li>
+              <li>Added cranking RPM in the condition for thermofan to turn ON.</li>
+              <li>First cut of rev matching auto blipping on downshift.</li>
+              <li>Added JDM RX8 ABS modes.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.082</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-Aug-14</i></strong></strong></div>
+          <div class="yui-u">
+            <ul>
+              <li>Allowed inversion of alternator load<strong><strong><strong><strong></strong></strong></strong></strong></li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.081</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-Jul-31</i></strong></strong><br>
+            <ul>
+              <li>Changed missing tooth cam trigger on BMW S54 to CAS3.</li>
+              <li> Corrected ignition output sense during ignition output test.</li>
+              <li> Changed S54 exhaust cam range from -22.5 -&gt; 67.5 instead
+                to -67.5 -&gt; 22.5</li>
+              <li> Improved communications reliability of Haltech TCA2.</li>
+              <li> Added support for S54 BMW exhaust VVT (VANOS).</li>
+              <li> Changed max temperature voltage from 4.5V to 4.7V, if you
+                have a voltage table (ie external </li>
+              <li>Changed Rover back to reluctor for trigger 1 and user defined
+                for triggers 2 and up.</li>
+              <li> Fixed problem with temperature reading when set to a
+                non-temperature input channel as the voltage source. </li>
+              <li>Changed Rover trigger so it only looks at the falling edge in
+                reluctor or hall effect mode on the cam trigger.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.075</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-Jun-15</i></strong></strong><br>
+            <ul>
+              <li>Changed single missing tooth threshold to plain 1.5 instead of
+                needing to be &lt;1.25 or &gt;1.75</li>
+              <li>Corrected "set crank period" for Rover trigger mode<strong><strong></strong></strong></li>
+            </ul>
+            <br>
+            <strong><strong><strong><strong>Modular_1.073</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-May-20</i></strong></strong><br>
+            <ul>
+              <li>Fixed JC20B ignition mode not using split table.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.072</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-Apr-17</i></strong></strong><br>
+            <ul>
+              <li>Added initialisation for closed loop boost</li>
+              <li>Added user temp #1 to output fuel level on Haltech V2 CAN
+                protocol</li>
+              <li>Corrected fuel pressure reading on Haltech V1 protocol</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.070</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2020-Mar-07</i></strong></strong><br>
+            <ul>
+              <li>Added early Lotus / Rover K trigger type 36-1-1-1</li>
+              <li>Added interrupt delatching on trigger inputs (improves
+                stability with certain trigger types)</li>
+              <li>Added BMW VANOS outputs</li>
+              <li>Fixed scaling on EGT outputs on Haltech CAN</li>
+              <li>Added fixed rising edge trigger on CAS 4/5 frequency
+                measurement on Subaru magic edge switching mode</li>
+              <li>Changed pulse ignition output test to handle inverted ignition
+                output conditions</li>
+              <li>Added RX8 EU ABS Mode 2 compatibility.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><i><br>
+                </i></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.063</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2019-Aug-19</i></strong></strong></div>
+          <div class="yui-u">
+            <ul>
+              <li>Added trigger type for BEAMS dual VVT (already supported
+                through generic mode).</li>
+            </ul>
+            <ul>
+            </ul>
+            <p><strong><strong><strong><strong>Modular_1.062</strong></strong></strong></strong><br>
+              <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                    2019-Aug-06</i></strong></strong></p>
+            <ul>
+              <li>Changed ignition timing air temp correction not to be applied
+                at idle (coolant temp still is). Added pressure ratio load
+                source to VVT.</li>
+              <li>Added battery voltage PID to OBD2.</li>
+              <li>Changed VSS calc to unsigned.</li>
+              <li>Changes to settings caching code (min main loop speed now 600
+                Hz).</li>
+              <li>Added blanking on aux output 4 for GM stepper motors.</li>
+              <li>Added Honda Aquatrax.</li>
+              <li>Changed Haltech CAN wideband so that free air shows lambda
+                10.000 instead of an error. Changed fuel diff pressure
+                measurement so it uses the IMAP value rather than IMAP
+                overridden by predicted MAP value.</li>
+              <li>Fixed ignition output overcurrent bug - even when disabled it
+                was tripping on the ignition outputs because it was reading the
+                wrong index in the field.</li>
+              <li>Added over MAP fuel temperature latching for flex sensor.</li>
+              <li>Fixed bug introduced in CAN UK RX8 ABS module.</li>
+              <li>Added CAN output for UK model RX8.</li>
+            </ul>
+            <ul>
+            </ul>
+          </div>
+          <br>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.050</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><i>Release
+                  2019-May-05</i></strong></strong>
+            <ul>
+              <li>Added overcurrent protection for large output module on aux
+                output and injector output pins.</li>
+              <li>Adding support for Grand National plugin ECU.</li>
+            </ul>
+            <p><strong><strong><strong><strong>Modular_1.046</strong></strong></strong></strong><br>
+              <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                    2019-Feb-25</i></strong></strong><br>
+            </p>
+            <ul>
+              <li>Added digital logic inputs (able to trigger a digital input
+                from a channel being &lt; or &gt; a constant). </li>
+              <li> 2 predefined aftermarket triggers with Hall effect sensors
+                were set as reluctor, set now to digital.</li>
+            </ul>
+            <ul>
+            </ul>
+          </div>
+          <div class="yui-u"> <strong><strong><strong><strong>Modular_1.042</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2019-Jan-22</i></strong></strong></div>
+          <div class="yui-u">
+            <ul>
+              <li>Added support for E85 separate target lambda tables.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.041</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2019-Jan-15</i></strong></strong></div>
+          <div class="yui-u">
+            <ul>
+              <li>Added support for vehicle speed as boost speed axis instead of
+                RPM.</li>
+              <li>Changed minimum boost function clipping to current baro
+                pressure so it doesn't happen in open loop duty cycle mode. </li>
+              <li>Changed Haltech CAN ethanol percentage output scaling.</li>
+              <li>Added native support for Buick 18/3/1 trigger (V6).</li>
+              <li>Added support for Haltech TC8.</li>
+              <li>Changed RX8 CAN to always send full packet.</li>
+              <li>Locked duty cycle override of DBW to 1 kHz frequency.</li>
+              <li>Changed boost control behaviour to calculate target boost all
+                the time, not only when in boost conditions.</li>
+              <li>Changed boost control target calculation so that the minimum
+                target is the barometric pressure.</li>
+              <li>Removed 4ec from RX8 CAN output.<strong><strong></strong></strong><br>
+                <strong><strong><strong></strong></strong></strong></li>
+            </ul>
+          </div>
+          <br>
+          <div class="yui-u"><br>
+            <strong><strong><strong> </strong></strong></strong> <strong><strong><strong></strong></strong></strong>
+          </div>
+          <br>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.035</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2018-Nov-13</i><strong></strong></strong></strong><br>
+            <strong><strong><strong> </strong></strong></strong> <strong><strong><strong></strong></strong></strong>
+            <ul>
+              <li>Moved Safeties to different bits to support SW changes.</li>
+              <li>Added 20B ignition mode.</li>
+              <li>Removed ignition cut on multiplexed ignition outputs.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.032</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2018-Nov-07</i></strong></strong></div>
+          <div class="yui-u">
+            <ul>
+              <li>Remove requirement for Motec PLM to be in RUN mode, so that it
+                also works for the LTC.</li>
+              <li>Added support for internal lambda module.</li>
+              <li>Made RX8 CAN US ABS an option.</li>
+              <li>Added support for fixed digital inputs on RX8 V2.</li>
+              <li>Added support for internal wideband module.</li>
+              <li>Changed RX8 CAN output for US models.</li>
+              <li>Removed injection limit on duration for final stage.</li>
+              <li>Added ability to use channel thresholds for digital inputs.</li>
+            </ul>
+            <ul>
+            </ul>
+            <strong><strong><strong> </strong></strong></strong> <strong><strong><strong></strong></strong></strong>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.027</strong></strong></strong></strong><br>
+            <strong><strong><strong></strong></strong></strong><strong><strong><strong><strong></strong></strong></strong></strong><strong><strong><strong></strong><i>Release
+                  2018-Oct-22</i><strong></strong></strong></strong><br>
+            <strong><strong><strong> </strong></strong></strong> <strong><strong><strong></strong></strong></strong>
+            <ul>
+              <li><span class="c comments">Added delay option for oil pressure.</span>
+              </li>
+              <li><span class="c comments">Added delay for ignition outputs
+                  after starting.</span> </li>
+              <li><span class="c comments">First prototype of internal wideband
+                  lambda.</span> </li>
+              <li><span class="c comments">Changes to RX8 CAN for US ABS unit.</span>
+              </li>
+              <li><span class="c comments">Changes to ECU locking to make more
+                  secure with earlier firmware.</span> </li>
+              <li><span class="c comments">Changes to gains of adaptive fuel to
+                  improve stability.</span> </li>
+              <li><span class="c comments">Changes to ECU locking to store in
+                  external MRAM as well as flash.</span> </li>
+              <li><span class="c comments">Enabled adaptive fuel.</span> </li>
+              <li><span class="c comments">Moved memory map around.</span> </li>
+              <li><span class="c comments">Changed handshaking of injector test
+                  code to improve comms reliability.</span> </li>
+              <li><span class="c comments">Added password locking function
+                  (still beta).</span> </li>
+              <li><span class="c comments">Fixed ignition PWM output frequency.</span>
+              </li>
+              <li><span class="c comments">Fixed injector / ignition test
+                  function.</span></li>
+            </ul>
+            <div class="line number28 index27 alt1"><code class="c comments"><br>
+              </code></div>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.015</strong><br>
+                </strong><i>Release 2018-Sep-10</i><strong><br>
+                </strong></strong></strong>
+            <ul>
+              <li>Removed wait for flash readiness after writing block - to
+                avoid lockup (and misfire).</li>
+              <li>Fixed target boost mode.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong><br>
+                  </strong></strong></strong></strong></div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.013</strong><br>
+                </strong><i>Release 2018-Sep-03</i><strong><br>
+                </strong></strong></strong>
+            <ul>
+              <li>Added S660 trigger support.</li>
+              <li>Added USB engine reset (if engine is stopped).</li>
+              <li>Fixed aux 5 dropout if engine stopped on M1200.</li>
+              <li>&nbsp;Added support for Haltech TCA box.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><strong><strong><strong>Modular_1.011</strong><br>
+                </strong><i>Release 2018-Aug-17</i><strong><br>
+                </strong> </strong></strong>
+            <ul>
+              <li>Improvements to transient ignition timing.</li>
+            </ul>
+            <strong><strong>Modular_1.010</strong><br>
+            </strong><i>Release 2018-Aug-09</i><strong><br>
+            </strong>
+            <ul>
+              <li>Update for new RX8 VB ID.</li>
+              <li>Added support for ECU Master EGT CAN.</li>
+              <li>Added support for Daihatsu 3+1 on cam.</li>
+              <li>Added trigger error detection on Evo trigger.</li>
+            </ul>
+            <strong>Modular_1.007</strong><br>
+            <i>Release 2018-Jul-26</i><br>
+            <ul>
+              <li>&nbsp;&nbsp; Added support for MAP on single cylinder engines
+                for 720 degree reset.</li>
+              <li>&nbsp;&nbsp; Added support for single tooth per 360 degrees
+                (single tooth on the crank).<br>
+                <strong> </strong> </li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong><br>
+            </strong></div>
+          <div class="yui-u"><strong>Modular_1.005</strong><br>
+            <i>Release 2018-Jul-09</i><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Changed trigger on both edges generic mode.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed Subaru EZ36 (broken in 0.243).</li>
+            </ul>
+            <strong>Modular_1.004</strong><br>
+            <i>Release 2018-Jun-20</i><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added variable launch control addition</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Mazda FSDE trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed bug with arbitrary scaling of
+                temperature inputs (introduced in 0.254)</li>
+              <li>&nbsp;&nbsp;&nbsp; Added 5V monitoring of mini analogue board</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed base angle of Holden V8 trigger.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong>Modular_0.255</strong><br>
+            <em><i>Release 2018-Jun-13</i></em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Cruise voltages for Subaru.</li>
+              <li>&nbsp;&nbsp;&nbsp; Arb temp calibrations, plus re-enabled
+                boost locking for learning table</li>
+              <li>&nbsp;&nbsp;&nbsp; Fuel volume calculation update - test using
+                RPM output on AEM as fuel used (in 1/100 L). Added in more
+                injector models (85 - 92).</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed key-on time dependent variables
+                (sometimes stepper timer would latch up).</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed interrupt handling on m1200
+                ignition outputs to improve ignition timing accuracy at very low
+                RPM on low tooth count engines.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed timing interrupt priority on M1200
+                ignition outputs (to improve timing accuracy on M1200).</li>
+            </ul>
+            <strong>Modular_0.249</strong><br>
+            Release 2018-May-28<br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Changed extra tooth threshold on Honda
+                trigger.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added CAN TRC LED for RX8 based on DSC
+                input (still experimental).</li>
+              <li>&nbsp;&nbsp;&nbsp; Added arbitrary pressire sensor
+                configuration.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru 4 x VVT update</li>
+            </ul>
+            <strong>Modular_0.245</strong><br>
+            <em>Release 2018-May-17</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added Purge Valve function.</li>
+            </ul>
+            <strong>Modular_0.243</strong><br>
+            <em>Release 2018-May-15</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added QR25 trigger.</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed separate banks 1st half / 2nd half
+                dual lambda reading averaging within a bank.</li>
+              <li>&nbsp;&nbsp;&nbsp; Holden V8 VP / VT trigger code. </li>
+              <li>&nbsp;&nbsp;&nbsp; DBW TRC code. </li>
+              <li>&nbsp;&nbsp;&nbsp; Changed CAN snoop so on RX8 mode it uses
+                channel 2.</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed Innovate serial input lean reading
+                introduced in 0.233.</li>
+            </ul>
+            <strong>Modular_0.237</strong><br>
+            <em>Release 2018-Apr-24</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Changed closed loop idle to only go to
+                closed loop idle if VSS=0 when VSS is enabled.</li>
+              <li>&nbsp;&nbsp;&nbsp; M2000 optimised ignition output for FC
+                igntion.</li>
+              <li>&nbsp;&nbsp;&nbsp; M1200 timing change.</li>
+              <li>&nbsp;&nbsp;&nbsp; User log variable channels for internal log
+                (fix).</li>
+              <li>&nbsp;&nbsp;&nbsp; Added input for Innovate to read full lean
+                when it's just showing O2.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed Nissan trigger 6 cyl dizzy edge
+                sensitivity.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added tps delta trans fuel mode.</li>
+              <li>&nbsp;&nbsp;&nbsp; First cut at traction code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added 5 cylinder output mode on M1200.</li>
+              <li>&nbsp;&nbsp;&nbsp; Improved ignition outputs on low tooth
+                count trigger engines.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added idle to close at crank option.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added EGT2 on Racepak output.</li>
+              <li>&nbsp;&nbsp;&nbsp; Optimised internal logging (faster
+                operation).</li>
+            </ul>
+            <strong>Modular_0.220</strong><br>
+            <em>Release 2018-Mar-12</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Moved temperature sensors into models
+                module.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added option for constant pullup value of
+                1k on temperature inputs (setting).</li>
+              <li>&nbsp;&nbsp;&nbsp; Added more injector options.</li>
+              <li>&nbsp;&nbsp;&nbsp; Another attempt for Subaru switching WFs.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added VQ25, VH45 and Jazz triggers.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added VQ30 trigger.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added 4+1 Suzuki trigger, Audi 5 cyl dizzy.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed ignition timing idle mode so it
+                does it on IDLE_DERIV in absolute RPM mode, and CLOSED_IDLE in
+                RPM error mode.</li>
+            </ul>
+            <strong>Modular_0.214</strong><br>
+            <em>Release 2018-Feb-28</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Partial coding of new triggers. Changed
+                closed loop fuel correction time.</li>
+            </ul>
+            <strong><br>
+              Modular_0.212</strong><br>
+            <em>Release 2018-Feb-22</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added Gaugeart comms.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru changing phases code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Internal logging changes.</li>
+            </ul>
+            <br>
+            <strong>Modular_0.209</strong><br>
+            <em>Release 2018-Jan-22</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added additional call to Angtrack_Stopped
+                to better handle the case when engine is already running when
+                ECU is powered up with certain triggers (esp. Subaru 36-2-2-2).</li>
+              <li>&nbsp;&nbsp;&nbsp; 2nd cut of Subaru 6/7 trigger mode.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added -3, -6, -9 dB headphone settings.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Idle closed loop status output.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Subaru 6/7 trigger mode.</li>
+            </ul>
+            <br>
+            <strong>Modular_0.205</strong><br>
+            <em>Release 2018-Jan-15</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Updated version of internal logging code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added RX8 odometer.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Suzuki G13B / GTi.</li>
+              <li>&nbsp;&nbsp;&nbsp; Enabled logging in the code (disabled by
+                default).</li>
+              <li>&nbsp;&nbsp;&nbsp; Added ability to invert ignition outputs
+                for MSD, Honda... that's about
+                it.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </li>
+              <li>&nbsp;&nbsp;&nbsp; ***Note that on an M1200 because of the
+                hardware current limiting you'll still need to either bypass the
+                internal resistor or use the normal output mode (falling edge)
+                and an external ignitor.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru EJ25 trigger version 5.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru EZ36 trigger version 2.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru EZ36 trigger version 2.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed Honda K to 30 degrees retarded.</li>
+              <li>&nbsp;&nbsp;&nbsp; Honda S2000 AP1, AP2, K20A / K24A trigger
+                V1.</li>
+              <li>&nbsp;&nbsp;&nbsp; Ford V8 trigger V4.</li>
+              <li>&nbsp;&nbsp;&nbsp; Ford V8 trigger V3.</li>
+              <li>&nbsp;&nbsp;&nbsp; Happy New Year!</li>
+            </ul>
+            <strong>Modular_0.194</strong><br>
+            <em>Release 2017-Dec-07</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Ford V8 trigger V2</li>
+              <li>&nbsp;&nbsp;&nbsp; Ford V8 trigger V1</li>
+              <li>&nbsp;&nbsp;&nbsp; 5th iteration of EJ25 code</li>
+              <li>&nbsp;&nbsp;&nbsp; 4th iteration of Subaru edge sensitivity
+                code (22.5 degree window, ignore edges during the missing tooth
+                gap). Also coded 30 degree window for Subaru EZ36, seems to have
+                stable timing on bench with inverting triggers.</li>
+              <li>&nbsp;&nbsp;&nbsp; Support for 3 cylinder, single pulse per
+                cylinder code.</li>
+              <li>&nbsp;&nbsp;&nbsp; 3rd iteration of Subaru edge sensitivity
+                code (22.5 degree window).<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.189</strong><br>
+            <em>Release 2017-Dec-05</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; 2nd iteration of Subaru edge sensitivity
+                code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed subaru edge sensitivity for Subaru
+                magic polarity changing sensors.</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed DBW problem introduced with dyno code
+                disable.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added first version GaugeArt output code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed Lotus type 1 CAN output for
+                odometer reading correctly.</li>
+            </ul>
+            <strong>Modular_0.185</strong><br>
+            <em>Release 2017-Nov-24</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added Lotus type 2 CAN odometer function</li>
+              <li>&nbsp;&nbsp;&nbsp; Added filtering on injector test</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented Lotus type 2 CAN output coding</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented fixed time air shifter output</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented Lotus type 1 CAN output coding</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented DSC input on RX8</li>
+            </ul>
+            <strong>Modular_0.181</strong><br>
+            <em>Release 2017-Nov-20</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; "Muted" injection outputs until outputs
+                synchronised.</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented OBD data reading.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added ability for single pulse per TDC
+                trigger.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added bootloader updating code to force
+                update to M1200 bootloader if it's an M1200 application code.</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented injector / ignition of M1200,
+                Increased closed loop MOP target tolerance to 3.5 and slowed
+                down movement when it gets close.</li>
+              <li>&nbsp;&nbsp;&nbsp; Thermofan disable for first second after
+                starting to allow filtered temperatures to stabilise. Increased
+                closed loop MOP target tolerance to 3%.</li>
+              <li>&nbsp;&nbsp;&nbsp; RX8 CAN code.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.174</strong><br>
+            <em>Release 2017-Oct-30</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; "Muted" injection outputs until outputs
+                synchronised.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.173</strong><br>
+            <em>Release 2017-Oct-27</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added K6A trigger non-VVT</li>
+              <li>&nbsp;&nbsp;&nbsp; Throttle blip code, gradual ign retard
+                re-instate</li>
+              <li>&nbsp;&nbsp;&nbsp; Strain gauge code</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Holley CAN output - not full speed
+                yet</li>
+              <li>&nbsp;&nbsp;&nbsp; MX5 NA ignition output glitch at specific
+                RPM on M1200 solved.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.169</strong><br>
+            <em>Release 2017-Oct-18</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added 4G69 trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed EZ36 trigger base back to 30 BTDC</li>
+              <li>&nbsp;&nbsp;&nbsp; Added / fixed Mitsubishi 6+1</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Suzuki Alto / RS Swift triggers</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Suzuki Swift Gen 5 trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed M1200 startup sequence</li>
+              <li>&nbsp;&nbsp;&nbsp; Daihatsu Mira trigger and increase Max 0-5V
+                input to 5.3V<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.162</strong><br>
+            <em>Release 2017-Oct-10</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Subaru EZ36; automatically detect either
+                edge on all 4.</li>
+              <li>&nbsp;&nbsp;&nbsp; Output enable set high by bootloader
+                (modular) and pulled low after initialising comms., to help with
+                S15 etc ECUs.</li>
+              <li>&nbsp;&nbsp;&nbsp; Subaru 2 x VVT update for all reluctors.</li>
+              <li>&nbsp;&nbsp;&nbsp; Trigger change for 2 x VVT Toyota.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added 4 cyl Mitsu / Mazda trigger.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added support for O2 voltage switching in
+                V07 HW.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added support for turbo speed inputs up to
+                6550 Hz (224 k RPM on 14 tooth BW).</li>
+              <li>&nbsp;&nbsp;&nbsp; Sped up low level input updating for use
+                with built-in scope.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed min time for 2 missing teeth to
+                2.125 instead of 2.5 to be more forgiving of double-2-missing
+                teeth on Subaru engines.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed Subaru base angle to 35 degrees
+                instead of 30.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added variable headphone gain and knock
+                gain.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added CAN snooping function.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed RX8 base angle.</li>
+              <li>&nbsp;&nbsp;&nbsp; VE DC motor coding.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.148</strong><br>
+            <em>Release 2017-Aug-24</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Subaru EZ36 automatically detect either
+                edge.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.147</strong><br>
+            <em>Release 2017-Aug-22</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Some changes to Adaptronic native mode,
+                added VSS / gear / MGP.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.145</strong><br>
+            <em>Release 2017-Aug-11</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Changed injector 3 output pin on M1200.</li>
+              <li>&nbsp;&nbsp;&nbsp; Inverted sign of VVT inputs on RT Mini
+                input board for quad VVT engines.</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented proper scaling of frequecy /
+                period on RT Mini inputs.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Adaptronic native CAN mode.<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.141</strong><br>
+            <em>Release 2017-Aug-08</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added option for fuel temp sensor type to
+                be -2 -&gt; read from flex (rather than having to choose in
+                source).</li>
+              <li>&nbsp;&nbsp;&nbsp; Added VNET remap option.</li>
+              <li>&nbsp;&nbsp;&nbsp; RColt trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Native Racepak / VNET CAN output</li>
+              <li>&nbsp;&nbsp;&nbsp; Haltech V1 CAN output</li>
+              <li>&nbsp;&nbsp;&nbsp; Haltech V2 CAN output - untested</li>
+              <li>&nbsp;&nbsp;&nbsp; Motec PLM implementation.</li>
+              <li>&nbsp;&nbsp;&nbsp; Built-in diagnostics for output module.</li>
+              <li>&nbsp;&nbsp;&nbsp; Start of CAN implementation.</li>
+            </ul>
+          </div>
+          <div class="yui-u"><strong>Modular_0.136</strong><br>
+            <em>Release 2017-Jul-20</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; RColt triger implementation.</li>
+              <li>&nbsp;&nbsp;&nbsp; Disabled "always allow async" option.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added allowance of single edge Nissan angle
+                error.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed module address reading for output
+                module to happen once at startup instead of every time through
+                main loop (noise immunity).</li>
+              <li>&nbsp;&nbsp;&nbsp; Ignition output bias override update for
+                firmware test.</li>
+            </ul>
+            <strong>Modular_0.133</strong><br>
+            <em>Release 2017-Jul-14</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Big changes for USB comms</li>
+              <li>&nbsp;&nbsp;&nbsp; Disabled 16 MB flash device</li>
+              <li>&nbsp;&nbsp;&nbsp; Added "write to block 0" to have same
+                function as write to block 513</li>
+              <li>&nbsp;&nbsp;&nbsp; Sped up USB comms for faster recognition by
+                Windows</li>
+              <li>&nbsp;&nbsp;&nbsp; Added FAT, root dir and FAT-16 filesystem
+                so Windows doesn't keep saying "format this!"</li>
+              <li>&nbsp;&nbsp;&nbsp; Added indirect write (to block 1) to effect
+                a write to any block</li>
+              <li>&nbsp;&nbsp;&nbsp; Corresponding changes in AdapComm.DLL</li>
+              <li>&nbsp;&nbsp;&nbsp; Also has a new bootloader updater, so when
+                you load in this firmware, it also checks the bootloader and
+                updates it if required.</li>
+            </ul>
+            <strong>Modular_0.129</strong><br>
+            <em>Release 2017-Jun-30</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added more injector models</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Zeitronix input, AEM input, PLX
+                output</li>
+              <li>&nbsp;&nbsp;&nbsp; Added debugging for async calculations</li>
+              <li>&nbsp;&nbsp;&nbsp; Adding minimum injector duration of 0.2ms
+                for manual async</li>
+              <li>&nbsp;&nbsp;&nbsp; Temperature input bias algorithm change</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed ADC timing also to increase
+                accuracy of current measurement of injector outputs on M1200</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Subaru 36-2-2-2 trigger modes</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Subaru EZ36 trigger mode</li>
+              <li>&nbsp;&nbsp;&nbsp; M1200 low level output scope, M1200 memory
+                fix</li>
+              <li>&nbsp;&nbsp;&nbsp; M1200 compatibility version.</li>
+            </ul>
+            <strong>Modular_0.121</strong><br>
+            <em>Release 2017-Jun-16</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Implemented open loop MOP control option
+                for FC / FD / FE MOPs, and closed loop FE MOP.</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented short pulse function on ID
+                injectors</li>
+            </ul>
+            <br>
+            <strong>Modular_0.119</strong><br>
+            <em>Release 2017-Jun-09</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added M1200 compatibility.</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed I2C initialization so it only
+                happens with 12V power, to speed up USB initialisation.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added turbine speed calculation.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added alternate pinout for MX5 NB ECUs.</li>
+              <li>&nbsp;&nbsp;&nbsp; Added voltage tolerance option for gear
+                detection.</li>
+            </ul>
+            <strong>Modular_0.116</strong><br>
+            <em>Release 2017-Jun-02</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Reduced min time to fire for slowed down
+                outputs to improve ignition pulse accuracy at high RPM.</li>
+            </ul>
+            <strong>Modular_0.115</strong><br>
+            <em>Release 2017-May-23</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Flipped NB MX5 trigger by 360 degrees</li>
+              <li>&nbsp;&nbsp;&nbsp; Added dedicated RX7 and RX8 triggers (std
+                RX7 and FFE models)</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed angle detection / wasted spark / DF
+                ignition output logic</li>
+              <li>&nbsp;&nbsp;&nbsp; Slowed down timers in output module by
+                factor of 4 to improve low RPM performance</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented injector models</li>
+            </ul>
+            <br>
+            <strong>Modular_0.110</strong><br>
+            <em>Release 2017-May-05</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Increased dead time on aux drive high PWM
+                outputs</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed DBW target TPS scaling / algorithm</li>
+              <li>&nbsp;&nbsp;&nbsp; Verified NB MX5 trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed ms cranking mode</li>
+              <li>&nbsp;&nbsp;&nbsp; Added V8 Audi trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed minimum pulsewidth for async pulses
+                (introduced in 0.105).</li>
+            </ul>
+            <strong>Modular_0.108</strong><br>
+            <em>Release 2017-May-01</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; added V8 Audi trigger (needs software
+                update)</li>
+              <li>&nbsp;&nbsp;&nbsp; fixed minimum pulsewidth for async pulse</li>
+              <li>&nbsp;&nbsp;&nbsp; Knock windowing, knock retard / recovery</li>
+              <li>&nbsp;&nbsp;&nbsp; Made I2C reset conditions more strict</li>
+              <li>&nbsp;&nbsp;&nbsp; Thermofan delay implementation</li>
+              <li>&nbsp;&nbsp;&nbsp; Added minimum effective PW and minimum fuel
+                volume</li>
+              <li>&nbsp;&nbsp;&nbsp; Added MGP as tuning option</li>
+              <li>&nbsp;&nbsp;&nbsp; Increased aircon switch filter to 500ms</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented knock time domain and angle
+                domain live views</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed trigger / logic on built-in scope</li>
+              <li>&nbsp;&nbsp;&nbsp; Disabled CAS3 as trigger input when used
+                for flex</li>
+              <li>&nbsp;&nbsp;&nbsp; Added phantom vehicle board numbers for S13
+                -&gt; S15 and S14 -&gt; S13 CA18DET.</li>
+            </ul>
+            <strong>Modular_0.101</strong><br>
+            <em>Release 2017-Mar-30</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added FC ignition output</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed flat shift to check history of gear
+                selection before closed loop flat shift</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed ana gear input to detect neutral
+                correctly</li>
+              <li>&nbsp;&nbsp;&nbsp; Found &amp; fixed PWM bug on injector
+                outputs</li>
+              <li>&nbsp;&nbsp;&nbsp; Found &amp; fixed PWM race on injector/aux
+                outputs</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed BEAMS temp calibration and trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed flash writing state to introduce
+                wait for BSY (settings cache)</li>
+              <li>&nbsp;&nbsp;&nbsp; Added Toyota BEAMS coolant temp sensor</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed generic temp sensor calibration</li>
+              <li>&nbsp;&nbsp;&nbsp; Extended range of built-in temp
+                calivrations to 150°C</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed some names of variables to be more
+                intuitive</li>
+              <li>&nbsp;&nbsp;&nbsp; Added injector duty cycle and fuel usage
+                calculations</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed VVT to only show channels in use on
+                main gauges window</li>
+              <li>&nbsp;&nbsp;&nbsp; Added visibility for resistance calculation
+                for temperature inputs</li>
+              <li>&nbsp;&nbsp;&nbsp; Added visibility for MGP (and MGP2 on dual
+                bank engines)</li>
+              <li>&nbsp;&nbsp;&nbsp; Added new coolant temperature type - defi</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed oil pressure safety to work down to
+                zero RPM</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed arbitrary temperature cal</li>
+              <li>&nbsp;&nbsp;&nbsp; Added option for idle ignition timing table
+                to be independent (not based off main ignition map)</li>
+              <li>&nbsp;&nbsp;&nbsp; Updated AIM output so it gives gear + 1...
+                to read correctly on dash</li>
+              <li>&nbsp;&nbsp;&nbsp; Evo 4-9 trigger</li>
+              <li>&nbsp;&nbsp;&nbsp; Added FW VSS filter, analogue gear
+                detection, closed loop ignition cut</li>
+              <li>&nbsp;&nbsp;&nbsp; Slowed down RT output so as not to overload
+                the dash</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed individual fuel trim TPS to be 0.1%
+                resolution</li>
+              <li>&nbsp;&nbsp;&nbsp; Added mini analogue-input support</li>
+            </ul>
+            <strong>Modular_0.087</strong><br>
+            <em>Release 2017-Mar-9</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; DBW to report motor current</li>
+              <li>&nbsp;&nbsp;&nbsp; Added ability to select fuel / oil pressure
+                from alternate sources</li>
+              <li>&nbsp;&nbsp;&nbsp; USB MSD changes</li>
+              <li>&nbsp;&nbsp;&nbsp; Check for high RPM Nissan operation (no
+                code change)</li>
+              <li>&nbsp;&nbsp;&nbsp; Fixed decel CEL light</li>
+              <li>&nbsp;&nbsp;&nbsp; Implemented antilag</li>
+            </ul>
+            <strong>Modular_0.082</strong><br>
+            <em>Release 2017-Feb-22</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Delay for cut reason, so it's persistent in
+                logs</li>
+              <li>&nbsp;&nbsp;&nbsp; Delay for async so it goes to zero after
+                the async is done</li>
+              <li>&nbsp;&nbsp;&nbsp; Leanout delay</li>
+              <li>&nbsp;&nbsp;&nbsp; Handle negative fuel delivery values</li>
+              <li>&nbsp;&nbsp;&nbsp; Added launch enable / in launch annuciators</li>
+              <li>&nbsp;&nbsp;&nbsp; Added ignition test</li>
+              <li>&nbsp;&nbsp;&nbsp; fixed closed loop idle enable bug</li>
+              <li>&nbsp;&nbsp;&nbsp; Made launch control data match latest SW<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.076&nbsp;&nbsp;</strong>&nbsp; <br>
+            <em>Released 2017-Feb-08</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Added diagnostics for mini aux output
+                module</li>
+              <li>&nbsp;&nbsp;&nbsp; Added mini aux output module support</li>
+              <li>&nbsp;&nbsp;&nbsp; Added more DBW functionality</li>
+              <li>&nbsp;&nbsp;&nbsp; Added firmware security for other modules</li>
+              <li>&nbsp;&nbsp;&nbsp; Changed TPS / EGT output calibration for
+                AIM dash</li>
+              <li>&nbsp;&nbsp;&nbsp; Added 4 x VSS, quad VVT cam support + 2GRFE
+                trigger dedicated mode<strong></strong><br>
+                <strong></strong></li>
+            </ul>
+            <strong>Modular_0.073</strong><br>
+            <em>Released 2017-Jan-25</em><br>
+            <ul>
+              <li>&nbsp;&nbsp;&nbsp; Changed ignition with 15 degree trigger
+                angle</li>
+              <li>&nbsp;&nbsp;&nbsp; Found &amp; fixed ignition output cut
+                showing 100% during overrun.</li>
+            </ul>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+        &nbsp;&nbsp; &nbsp; </div>
+      <div id="ft">
+        <hr style="color: #990000; margin-left: auto; margin-right: auto;">©2020
+        Adaptronic</div>
+      <div><br>
+      </div>
+    </div>
+  </body>
+</html>

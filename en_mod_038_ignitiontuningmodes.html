@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-au">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Ignition Timing Tuning Modes on Modular ECUs</title>
+    <style type="text/css">/*
+
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+
+Code licensed under the BSD License:
+
+http://developer.yahoo.net/yui/license.txt
+
+version: 2.6.0
+
+*/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}</style>
+    <style type="text/css">
+h1 {
+  font-size: 138.5%;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+h3 {
+  font-size: 108%;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+abbr, acronym {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  cursor: help;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ol, ul, dl {
+  margin-left: 2em;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+dl dd {
+  margin-left: 1em;
+}
+
+th, td {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+  -moz-border-top-colors: none;
+  border-top-colors: none;
+  -moz-border-right-colors: none;
+  border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-left-colors: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, fieldset, table, pre {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 12.25em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar:hover {
+  font-weight: normal;
+}
+
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
+.store:hover {
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
+  font-weight: normal;
+}
+
+.contact {
+  font-weight: normal;
+}
+
+.versionnum {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
+}
+
+.releasecontent {
+  font-size: medium;
+}
+
+.modrev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: small;
+  color: #3333ff;
+}
+
+.selectrev {
+  font-weight: normal;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
+}
+
+</style><meta name="author" content="Larry Cruz">
+    <meta name="generator" content="BlueGriffon wysiwyg editor">
+    <meta name="keywords" content="eugene,table,graph,3d,textmap,2D">
+    <meta name="description" content="A tutorial on how to manipulate tables and graphs in Eugene.">
+  </head>
+  <body>
+    <div id="doc" class="yui-t7">
+      <div class="navbar"><br>
+      </div>
+      <div class="navbar" id="downloads">&nbsp;&nbsp;&nbsp; <span style="color: white;"
+
+
+            style="color: white;" class="downloads" id="top">DOWNLOADS</a>&nbsp;&nbsp;&nbsp;
+
+            style="color: white;" class="store">STORE</a>&nbsp;&nbsp;&nbsp; <a
+
+href=2 target=_blank style=color: white;
+
+            class="contact">CONTACT US</a></span></div>
+      <div class="navbar"><br>
+      </div>
+      <div><br>
+      </div>
+      <div id="bd">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <p class="Pagetitle">Ignition Timing Tuning Modes on Modular ECUs</p>
+
+                support home</a></p>
+          </div>
+          <div class="yui-u" style="text-align: left;">
+
+          </div>
+        </div>
+        <div class="yui-gf" style="font-size: small;">
+          <div class="yui-u first"><br>
+
+
+
+                Base Timing on Modular ECUs<br>
+              </a></p>
+            <p class="selectrev"><br>
+            </p>
+
+              </a></p>
+            <p class="releasedate"><br>
+            </p>
+            <p class="releasedate"><br>
+            </p>
+          </div>
+          <div class="bodytxt1"><br>
+            <small> </small>
+            <div class="yui-u"><small><span style="font-weight: bold; font-family: Tahoma; color: red;"><span
+
+                    style="color: black;"></span></span></small><span></span> <small><br>
+                <div style="position:relative;height:0;padding-bottom:56.25%"><iframe
+
+src=2 allow=autoplay; encrypted-media
+
+                    style="position:absolute;width:100%;height:100%;left:0" allowfullscreen=""
+
+                    width="640" height="360" frameborder="0"></iframe></div>
+                <br>
+              </small><small> <span>This article explains the different load
+                  axes of ignition mapping, as well as temperature corrections
+                  for ignition timing.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> Similarly to the fuel mapping, the Adaptronic
+                  Modular ECUs can use a combination of MAP and TPS for ignition
+                  timing tuning. The ideal measurement would be the pressure of
+                  the air in the cylinder, which would be best approximated by
+                  MAP x VE. However we wouldn’t want a system whereby someone
+                  changes the fuel map and then that changes the ignition timing
+                  as well – even though that might be scientifically accurate,
+                  it’s important for ECUs to behave as tuners expect them,
+                  otherwise the tuner can’t make the ECU do what is needed.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> It’s set in the settings for your ignition map, so
+                  if you’re using dual maps there will be a setting for ignition
+                  map 1 and another for ignition map 2.</span></small></div>
+            <div class="yui-u"><small><span></span></small><br>
+              <small><span> </span><span> </span></small>
+              <div id="attachment_6072" class="wp-caption aligncenter" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); margin: 0px auto 10px; padding: 5px; display: block; text-align: center; width: 600px;">
+                <small><span><br>
+                    <span style="text-decoration: none;"><img class="wp-image-6072 size-large"
+
+src=2
+
+                        alt="1_enablingdualmaps" style="border: 0px solid; max-width: 100%; width: 590px; height: 328px;"></span><br>
+                  </span></small> <small><span><br>
+                    Tuning-Ignition &gt; Tuning Modes then enable dual maps<br>
+                  </span></small> </div>
+              <small><span> </span></small>
+              <div id="attachment_6073" class="wp-caption aligncenter" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); margin: 0px auto 10px; padding: 5px; display: block; text-align: center; width: 600px;">
+                <small><span><br>
+                    <span style="text-decoration: none;"><img class="wp-image-6073 size-large"
+
+src=2 alt=2_Ignmaps
+
+                        style="border: 0px solid; max-width: 100%; width: 590px; height: 328px;"></span><br>
+                  </span></small> <small><span><br>
+                    Notice that the ignition maps can be set separately.<br>
+                  </span></small> </div>
+              <small><span> </span></small><br>
+              <small><span> The most basic is MAP. This has a pretty good
+                  correlation with the pressure of the air that’s in the
+                  cylinder, and therefore how quickly the flame front spreads
+                  through the engine, which is what you need to compensate for
+                  when you tune ignition timing against load. So this is the one
+                  we recommend most of the time.</span></small></div>
+            <div class="yui-u"><small><span></span></small><br>
+              <small><span> </span></small>
+              <div id="attachment_6068" class="wp-caption aligncenter" style="color: rgb(0, 0, 0); font-family: Tahoma; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; border: 1px solid rgb(221, 221, 221); margin: 0px auto 10px; padding: 5px; display: block; text-align: center; width: 600px;">
+                <small><span><br>
+                    <span style="text-decoration: none;"><img class="wp-image-6068 size-large"
+
+src=2 alt=3_operator
+
+                        style="border: 0px solid; max-width: 100%; width: 590px; height: 328px;"></span><br>
+                  </span></small> <small><span><br>
+                    Changing “Operator” can be found in “Ignition Map Settings”
+                    page<br>
+                  </span></small> </div>
+              <small><span> </span></small><br>
+              <small><span> If you don’t have a MAP measurement, then you will
+                  have to use throttle position instead. This does not correlate
+                  all that well with pressure in the cylinder; at low RPM
+                  especially there will be a lot of movement within the first
+                  20% of throttle change and from then on it won’t change much
+                  at all. So tuning ignition on throttle position will take
+                  longer than on manifold pressure but on some engines that all
+                  that is available.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> Although pressure ratio is perfect for tuning fuel,
+                  it’s not appropriate for ignition timing – if it’s not obvious
+                  why then I’ll leave that as an exercise for you to work out.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> We also offer MGP as a measurement. I don’t
+                  personally think it’s a good idea, because it’s a absolute
+                  pressure that affects the flame propogation rate, not the
+                  pressure relative to the outside of the engine. The rapid
+                  spreading of the Apollo 1 fire and a similar event in the USSR
+                  was due partially to the pure oxygen environment but also the
+                  elevated pressure; they had the command module pressured to
+                  about 1.1 bar or 16 PSI of absolute pressure during the Apollo
+                  1 fire when the flammability testing was all designed to
+                  operate in space with a pressure of about 0.3 bar or 5 PSI.
+                  But I’ve heard the argument from one person that “tuners are
+                  used to tuning off gauge pressure” so we’ve put in that option
+                  as well.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> <span style="text-decoration: none;"><img class="aligncenter size-large wp-image-6069"
+
+src=2 alt=4_Apollo
+
+                      style="border: 0px solid; margin: 0px auto 10px; max-width: 100%; display: block; width: 590px; height: 328px;"></span></span></small><br>
+              <small><span> </span></small><br>
+              <small><span> On turbocharged cars with individual throttles,
+                  often the MAP does not fully tell the story of how well the
+                  engine is breathing, and that’s why those car need to have a
+                  combined MAP x TPS tune for the fuel model. On those cars,
+                  it’s possible to improve drivability by selecting a MAP + TPS
+                  ignition tune, perform the full MAP tune while leaving the TPS
+                  map at zero, and then adding some positive values in the TPS
+                  map at light throttle to increase light throttle torque.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> I can’t think of a reason why someone would want to
+                  multiply MAP and TPS maps, as on the fuel system, but this
+                  option is also there for anyone who wants to use it – and
+                  these can be either MAP or MGP (although as I said above, MGP
+                  doesn’t really represent anything on the car).</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> In addition to the basic ignition tuning modes, you
+                  can, if you want to, add in correction for air and coolant
+                  temperature. Normally the engine would be tuned with these at
+                  zero, and then safety functions can be added for example
+                  putting in some negative values at high air or coolant
+                  temperatures. Please do not tune the engine with negative
+                  values in these tables, because what can happen is that during
+                  tuning, while the engine is on the dyno and there’s a lot of
+                  heat soak, temperatures are high and you can be in the part of
+                  the map with the negative correction in it. So if you tune
+                  with this correction in place, your basic map may end up too
+                  far advanced, and then when Fred takes it out for a drive when
+                  it’s cold the ignition timing could be too aggressive.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> <span style="text-decoration: none;"><img class="aligncenter size-large wp-image-6070"
+
+src=2
+
+                      alt="5_correctiontable" style="border: 0px solid; margin: 0px auto 10px; max-width: 100%; display: block; width: 590px; height: 328px;"></span></span></small><br>
+              <small><span> </span></small><br>
+              <small><span> <span style="text-decoration: none;"><img class="aligncenter size-large wp-image-6071"
+
+src=2 alt=6_negative
+
+                      style="border: 0px solid; margin: 0px auto 10px; max-width: 100%; display: block; width: 590px; height: 328px;"></span></span></small><br>
+              <small><span> </span></small><br>
+              <small><span> Setting up closed loop ignition timing with
+                  reference to knock control will be a separate article.</span></small><br>
+              <small><span> </span></small><br>
+              <small><span> Thank you very much!</span></small><br>
+              <span></span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ft">
+        <hr style="color: #990000; margin-left: auto; margin-right: auto;">©2018
+        Adaptronic</div>
+      <div><br>
+      </div>
+    </div>
+  </body>
+</html>
