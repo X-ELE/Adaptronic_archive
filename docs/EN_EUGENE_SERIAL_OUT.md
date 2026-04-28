@@ -1,4 +1,4 @@
-templateSerial
+Serial
 OUT  
 
 - [Setting

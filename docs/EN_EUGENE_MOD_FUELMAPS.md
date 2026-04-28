@@ -1,4 +1,4 @@
-templateFuel
+Fuel
 Maps  
   
 The
@@ -12,7 +12,9 @@ Fuel
 map settings. A second fuel map table with TPS as load variable is used
 whenever theOperatorinvolves TPS (i.e. TPS, MAP + TPS and MAP x TPS)  
   
-![](../images/Eugene/fuel_map.png)  
+
+![](../images/Eugene/fuel_map.png)
+  
   
 Fuel
 Map Settings  

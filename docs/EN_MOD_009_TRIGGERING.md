@@ -1,227 +1,26 @@
-Triggering on a Modular ECU/*
-
-Copyright (c) 2008, Yahoo! Inc. All rights reserved.
-
-Code licensed under the BSD License:
-
-http://developer.yahoo.net/yui/license.txt
-
-version: 2.6.0
-
-*/
-
-html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}h1 {
-  font-size: 138.5%;
-}
-
-h2 {
-  font-size: 123.1%;
-}
-
-h3 {
-  font-size: 108%;
-}
-
-h1, h2, h3 {
-  margin-top: 1em;
-  margin-right: 0px;
-  margin-bottom: 1em;
-  margin-left: 0px;
-}
-
-h1, h2, h3, h4, h5, h6, strong {
-  font-weight: bold;
-}
-
-abbr, acronym {
-  border-bottom-width: 1px;
-  border-bottom-style: dotted;
-  border-bottom-color: black;
-  cursor: help;
-}
-
-em {
-  font-style: italic;
-}
-
-blockquote, ul, ol, dl {
-  margin-top: 1em;
-  margin-right: 1em;
-  margin-bottom: 1em;
-  margin-left: 1em;
-}
-
-ol, ul, dl {
-  margin-left: 2em;
-}
-
-ol li {
-  list-style-type: decimal;
-  list-style-image: none;
-  list-style-position: outside;
-}
-
-ul li {
-  list-style-type: disc;
-  list-style-image: none;
-  list-style-position: outside;
-}
-
-dl dd {
-  margin-left: 1em;
-}
-
-th, td {
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-top-color: black;
-  border-right-color: black;
-  border-bottom-color: black;
-  border-left-color: black;
-  -moz-border-top-colors: none;
-  border-top-colors: none;
-  -moz-border-right-colors: none;
-  border-right-colors: none;
-  -moz-border-bottom-colors: none;
-  border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  border-left-colors: none;
-  border-image-source: none;
-  border-image-slice: 100% 100% 100% 100%;
-  border-image-width: 1 1 1 1;
-  border-image-outset: 0 0 0 0;
-  border-image-repeat: stretch stretch;
-  padding-top: 0.5em;
-  padding-right: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 0.5em;
-}
-
-th {
-  font-weight: bold;
-  text-align: center;
-}
-
-caption {
-  margin-bottom: 0.5em;
-  text-align: center;
-}
-
-p, fieldset, table, pre {
-  margin-bottom: 1em;
-}
-
-input[type="text"], input[type="password"], textarea {
-  width: 12.25em;
-}
-
-.navbar {
-  background-color: black;
-  color: white;
-  font-size: smaller;
-}
-
-.Pagetitle {
-  font-size: large;
-  font-weight: bold;
-}
-
-.navbar:hover {
-  font-weight: normal;
-}
-
-#downloads:hover {
-  font-weight: normal !important;
-  font-size: smaller !important;
-}
-
-.contact:hover {
-  font-weight: bolder;
-}
-
-.downloads:hover {
-  font-weight: bolder;
-}
-
-.store:hover {
-  font-weight: bolder;
-}
-
-.downloads {
-  font-weight: normal;
-}
-
-.store {
-  font-weight: normal;
-}
-
-.contact {
-  font-weight: normal;
-}
-
-.versionnum {
-  font-size: large;
-  color: black;
-  font-weight: bold;
-}
-
-.releasedate {
-  font-size: small;
-  font-style: italic;
-  color: black;
-}
-
-.releasecontent {
-  font-size: medium;
-}
-
-.modrev {
-  font-style: normal;
-  font-weight: normal;
-  font-size: small;
-  color: #3333ff;
-}
-
-.selectrev {
-  font-weight: normal;
-  font-style: normal;
-  color: #3333ff;
-  font-size: small;
-}
-
-.yui-u {
-  font-size: medium;
-}
-
-.backhome {
-  font-size: smaller;
-}
-
-.latestrev {
-  font-size: smaller;
-}
-
-.bodytxt1 {
-  font-size: xx-small;
-}  
+  
+  
+  
+  
+  
   
 [DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
   
-
+  
+  
+  
+  
+  
 
 Triggering on Modular ECU
 
 [go back to
-                support home](EN_EUGENE_MOD_HOME.md)
+                support home](EN_EUGENE_MOD_HOME.md)  
 
-![image](../images/Eugene/Eugene250.png)  
-
+![image](../images/Eugene/Eugene250.png)
+  
+  
+  
 
 [Configuring
                 inputs  
@@ -235,14 +34,15 @@ Triggering on Modular ECU
 
   
 
-
 [  
 
               ](EN_SelFW.md)
 
   
 
-
+  
+  
+  
   
   
   
@@ -275,7 +75,9 @@ There are several preconfigured triggers for various
                   the base angle of zero degrees, and then fine tune the
                   ignition timing using timing lock when the engine is running.  
   
-![preconf](../images/009_Triggering/Preconf.png)  
+
+![preconf](../images/009_Triggering/Preconf.png)
+  
   
 But this article is mostly about the generic trigger
                   mode. In this mode, you will need to configure it yourself
@@ -301,7 +103,11 @@ First we’ll discuss sensor wiring and sensor types.
                   sensor output connected to either input, but following this
                   protocol, the 360 window trigger would connect to CAS1.  
   
-![toyotamitsu](../images/009_Triggering/Toyota_Mitsubishi.png)![optcas](../images/009_Triggering/Opt_cas.png)  
+
+![toyotamitsu](../images/009_Triggering/Toyota_Mitsubishi.png)
+
+![optcas](../images/009_Triggering/Opt_cas.png)
+  
 Sample Pictures Only  
   
 Secondly, there are broadly speaking 2 types of
@@ -338,11 +144,17 @@ The other thing to be careful about with the reluctor
                   waveform and the relative timing on the built-in scope in the
                   ECU.  
   
-![nonvvt](../images/009_Triggering/NonVVT.png)  
+
+![nonvvt](../images/009_Triggering/NonVVT.png)
   
-![gap](../images/009_Triggering/Gap.PNG)  
   
-![nonvvtline](../images/009_Triggering/NonVVT_line.PNG)  
+
+![gap](../images/009_Triggering/Gap.PNG)
+  
+  
+
+![nonvvtline](../images/009_Triggering/NonVVT_line.PNG)
+  
 The other type of
                   sensor is a digital sensor. These can take the form of a an
                   optical sensor, or a Hall effect sensor. In some cases there
@@ -378,7 +190,9 @@ The next feature is the filtering. In general, you
                   sensors this will need to reduce to about 4 microseconds at
                   high RPM.  
   
-![trig1](../images/009_Triggering/Trig1.png)  
+
+![trig1](../images/009_Triggering/Trig1.png)
+  
 Now, we’ll look at how
                   the ECU interprets these trigger events. The first setting we
                   need to consider is the angle increment. This is the crank
@@ -389,9 +203,13 @@ Now, we’ll look at how
                   you will need to use a dedicated trigger mode, not the generic
                   trigger mode.  
   
-![6deg](../images/009_Triggering/6deg.png)  
+
+![6deg](../images/009_Triggering/6deg.png)
   
-![30deg](../images/009_Triggering/30deg.png)  
+  
+
+![30deg](../images/009_Triggering/30deg.png)
+  
 The next thing to
                   consider is how the ECU will know when the engine is at TDC,
                   ie where to start counting from. There will need to be some
@@ -402,7 +220,9 @@ The next thing to
                   reset type for Trigger 1 to be a crank type reset, and select
                   either 1 or 2 missing teeth as appropriate for your engine.  
   
-![crank2](../images/009_Triggering/Crank2.png)  
+
+![crank2](../images/009_Triggering/Crank2.png)
+  
 In this case, the base
                   trigger angle will be the angle BTDC of the first tooth after
                   the gap. Now, being a 720 degree cycle and a crank sensor,
@@ -418,7 +238,11 @@ The other common case is where there is a single
                   instead, then you should select “crank” instead of “cam”, for
                   example the factory trigger on the RX7 FD engine.  
   
-![cas1none](../images/009_Triggering/cas1none.PNG)![cas2cam](../images/009_Triggering/cas2cameverytooth.png)  
+
+![cas1none](../images/009_Triggering/cas1none.PNG)
+
+![cas2cam](../images/009_Triggering/cas2cameverytooth.png)
+  
 If you are using this
                   trigger type with a multitooth and a cam reset, then you will
                   need to check the relative trigger angles. You can do this
@@ -431,7 +255,9 @@ If you are using this
                   need to select the rising or falling edges differently on a
                   digital trigger.  
   
-![nonvvtlinedes](../images/009_Triggering/NonVVT_line_des.png)  
+
+![nonvvtlinedes](../images/009_Triggering/NonVVT_line_des.png)
+  
   
 If you so far have only selected a crank type reset,
                   for example if you have a missing tooth on the crank, and you
@@ -441,14 +267,18 @@ If you so far have only selected a crank type reset,
                   single tooth, then select the trigger type as “first half
                   only”.  
   
-![1sthalf](../images/009_Triggering/Firsthalf_reseteverytooth.png)  
+
+![1sthalf](../images/009_Triggering/Firsthalf_reseteverytooth.png)
+  
 If it’s a missing tooth
                   type sensor for example the Toyota 2ZZ or BEAMS which has 4-1
                   on the cam, you should select it as first half only, but
                   select it as “reset on 1 missing tooth” rather than “reset on
                   every tooth”.  
   
-![1sthalf1t](../images/009_Triggering/Firsthalf_1tooth.png)  
+
+![1sthalf1t](../images/009_Triggering/Firsthalf_1tooth.png)
+  
 Note that in first half
                   only type reset, this only switches the ECU’s crank angle by
                   360 degrees or leaves it as is. There must be a separate
@@ -472,7 +302,9 @@ Channel 3: Current engine angle, 100/div
   
 Timebase: 50ms per division  
   
-![settongs](../images/009_Triggering/settings.png)  
+
+![settongs](../images/009_Triggering/settings.png)
+  
   
 Once you have the correct triggering, you can set the
                   base timing using the base angle setting. When cranking you
@@ -507,7 +339,9 @@ Reading the crank angle can be done with the factory
                   timing setting by 360 degrees and try again. Once it’s only
                   firing every 720 degrees, then you know it’s correct.  
   
-![1gnmode1](../images/009_Triggering/IgnitionMode1.png)  
+
+![1gnmode1](../images/009_Triggering/IgnitionMode1.png)
+  
 Finally, if you have a
                   crank reset that occurs potentially a long time before the
                   reset on the camshaft, which would be a “first half only”
@@ -516,8 +350,12 @@ Finally, if you have a
                   switch over to 720 degrees. This gives you the nyeh-nyeh-vroom
                   starting performance of a factory car.  
   
-![ignmode2](../images/009_Triggering/IgnitionMode2.PNG)  
+
+![ignmode2](../images/009_Triggering/IgnitionMode2.PNG)
+  
 Thank you and happy
                   learning!  
+  
 ©2018
         Adaptronic  
+  
