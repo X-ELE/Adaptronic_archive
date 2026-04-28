@@ -1,41 +1,18 @@
-  
-  
-  
-  
-  
-  
-[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
-  
-  
-  
-  
-  
-  
 
 How to Use Tables and Graphs
 
-[go back to support
-                home](EN_EUGENE_HOME.md)  
+[go back to support home](EN_EUGENE_HOME.md)  
 
 ![image](../images/Eugene/Eugene250.png)
   
-  
-  
 
-[Eugene basics  
+[Eugene basics](EN_EUGENE_ABOUT.md)
 
-              ](EN_EUGENE_ABOUT.md)
-
-[Keyboard
-                shortcuts for tables and graphs  
-
-              ](EN_EUGENE_KBSC_TG.md)
+[Keyboard shortcuts for tables and graphs  ](EN_EUGENE_KBSC_TG.md)
 
   
 
-[  
-
-              ](EN_SelFW.md)
+[  ](EN_SelFW.md)
 
   
 
@@ -50,8 +27,7 @@ How to Use Tables and Graphs
 - [Selecting cells](EN_EUGENE_HOW_TABLE_GRAPH.html#IV._Selecting_Cells)
 - [Data Entry](EN_EUGENE_HOW_TABLE_GRAPH.html#IV._Data_Entry)
 - [Interpolation](EN_EUGENE_HOW_TABLE_GRAPH.html#V._Interpolation)
-- [Duplicating
-                      cell value a.k.a. Copy/Paste](EN_EUGENE_HOW_TABLE_GRAPH.html#VII._Duplicating_Cell_Values_a.k.a)
+- [Duplicating cell value a.k.a. Copy/Paste](EN_EUGENE_HOW_TABLE_GRAPH.html#VII._Duplicating_Cell_Values_a.k.a)
 - [Map trace](EN_EUGENE_HOW_TABLE_GRAPH.html#VIII._Map_Trace)
 - [Cell Tagging](EN_EUGENE_HOW_TABLE_GRAPH.html#IX._Cell_Tagging)  
 []()Setting
@@ -81,8 +57,7 @@ X and Y axes of the table may
                   set, click OK. If an error is detected (e.g. duplicate
                   netries, etc), fix the entry value and hit OK again.  
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
   
 []()Inserting
@@ -105,8 +80,7 @@ Inserting a row
 4. Hit OK when
                   finished.  
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Deleting cells  
 Deleting cells are
@@ -120,8 +94,7 @@ Deleting cells are
                   pop out for the confirmation.  
 3. Hit YES to confirm.  
   
-[Back
-                    to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Selecting Cells  
 Navigating through the
@@ -134,8 +107,7 @@ Navigating through the
 - Selecting the
                       entire column or row is done using a mouse by clicking on
                       the header. To select multiple columns or rows, just drag
-                      from the initial header while pressing left-muse button.[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+                      from the initial header while pressing left-muse button.[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Data Entry  
 Only these are valid
@@ -161,8 +133,7 @@ b. To increment /
                       When pressed while holding CTRL key down, the increment or
                       decrement is the tenth of the default increment value  
   
-[Back
-                    to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Interpolation  
 Use the interpolation
@@ -193,8 +164,7 @@ b.
                   PressXto start
                   interpolation  
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Duplicating
                     Cell Value a.k.a Copy/Paste  
@@ -227,8 +197,7 @@ c.
                   Copy entrire row - click on the row header, and then pressCTRL + UP/DOWN ARROWkey
                   to start copying.  
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Map Trace  
 This function is only
@@ -249,8 +218,7 @@ When this function is
 ![maptrace](../images/Eugene/TabGraph_MapTrace1.png)
   
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
 []()Cell
                   Tagging  
@@ -267,8 +235,7 @@ When working with fuel
 
 ![marktuned](../images/Eugene/MarkTuned.png)
   
-[Back to
-                    top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
+[Back to top](EN_EUGENE_HOW_TABLE_GRAPH.html#top)  
   
   
 ©2018
