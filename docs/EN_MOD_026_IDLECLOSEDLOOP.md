@@ -1,0 +1,434 @@
+Setting up Closed Loop Idle Control on Modular ECUs/*
+
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+
+Code licensed under the BSD License:
+
+http://developer.yahoo.net/yui/license.txt
+
+version: 2.6.0
+
+*/
+
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}body{text-align:center;}#ft{clear:both;}#doc,#doc2,#doc3,#doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;*width:56.25em;min-width:750px;}#doc2{width:73.076em;*width:71.25em;}#doc3{margin:auto 10px;width:auto;}#doc4{width:74.923em;*width:73.05em;}.yui-b{position:relative;}.yui-b{_position:static;}#yui-main .yui-b{position:static;}#yui-main,.yui-g .yui-u .yui-g{width:100%;}{width:100%;}.yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main{float:right;margin-left:-25em;}.yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main{float:left;margin-right:-25em;}.yui-t1 .yui-b{float:left;width:12.30769em;*width:12.00em;}.yui-t1 #yui-main .yui-b{margin-left:13.30769em;*margin-left:13.05em;}.yui-t2 .yui-b{float:left;width:13.8461em;*width:13.50em;}.yui-t2 #yui-main .yui-b{margin-left:14.8461em;*margin-left:14.55em;}.yui-t3 .yui-b{float:left;width:23.0769em;*width:22.50em;}.yui-t3 #yui-main .yui-b{margin-left:24.0769em;*margin-left:23.62em;}.yui-t4 .yui-b{float:right;width:13.8456em;*width:13.50em;}.yui-t4 #yui-main .yui-b{margin-right:14.8456em;*margin-right:14.55em;}.yui-t5 .yui-b{float:right;width:18.4615em;*width:18.00em;}.yui-t5 #yui-main .yui-b{margin-right:19.4615em;*margin-right:19.125em;}.yui-t6 .yui-b{float:right;width:23.0769em;*width:22.50em;}.yui-t6 #yui-main .yui-b{margin-right:24.0769em;*margin-right:23.62em;}.yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em 0;}#yui-main .yui-b{float:none;width:auto;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.1%;}.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32%;margin-left:1.99%;}.yui-gb .yui-u{*margin-left:1.9%;*width:31.9%;}.yui-gc div.first,.yui-gd .yui-u{width:66%;}.yui-gd div.first{width:32%;}.yui-ge div.first,.yui-gf .yui-u{width:74.2%;}.yui-ge .yui-u,.yui-gf div.first{width:24%;}.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}.yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;*width:48.1%;*margin-left:0;}.yui-g .yui-g .yui-u{width:48.1%;}.yui-g .yui-gb div.first,.yui-gb .yui-gb div.first{*margin-right:0;*width:32%;_width:31.7%;}.yui-g .yui-gc div.first,.yui-gd .yui-g{width:66%;}.yui-gb .yui-g div.first{*margin-right:4%;_margin-right:1.3%;}.yui-gb .yui-gc div.first,.yui-gb .yui-gd div.first{*margin-right:0;}.yui-gb .yui-gb .yui-u,.yui-gb .yui-gc .yui-u{*margin-left:1.8%;_margin-left:4%;}.yui-g .yui-gb .yui-u{_margin-left:1.0%;}.yui-gb .yui-gd .yui-u{*width:66%;_width:61.2%;}.yui-gb .yui-gd div.first{*width:31%;_width:29.5%;}.yui-g .yui-gc .yui-u,.yui-gb .yui-gc .yui-u{width:32%;_float:right;margin-right:0;_margin-left:0;}.yui-gb .yui-gc div.first{width:66%;*float:left;*margin-left:0;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf .yui-u{margin:0;}.yui-gb .yui-gb .yui-u{_margin-left:.7%;}.yui-gb .yui-g div.first,.yui-gb .yui-gb div.first{*margin-left:0;}.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u{*width:48.1%;*margin-left:0;} .yui-gb .yui-gd div.first{width:32%;}.yui-g .yui-gd div.first{_width:29.9%;}.yui-ge .yui-g{width:24%;}.yui-gf .yui-g{width:74.2%;}.yui-gb .yui-ge div.yui-u,.yui-gb .yui-gf div.yui-u{float:right;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf div.first{float:left;}.yui-gb .yui-ge .yui-u,.yui-gb .yui-gf div.first{*width:24%;_width:20%;}.yui-gb .yui-ge div.first,.yui-gb .yui-gf .yui-u{*width:73.5%;_width:65.5%;}.yui-ge div.first .yui-gd .yui-u{width:65%;}.yui-ge div.first .yui-gd div.first{width:32%;}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}#bd,.yui-g,.yui-gb,.yui-gc,.yui-gd,.yui-ge,.yui-gf{zoom:1;}h1 {
+  font-size: 138.5%;
+}
+
+h2 {
+  font-size: 123.1%;
+}
+
+h3 {
+  font-size: 108%;
+}
+
+h1, h2, h3 {
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+abbr, acronym {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  cursor: help;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+ol, ul, dl {
+  margin-left: 2em;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: outside;
+}
+
+dl dd {
+  margin-left: 1em;
+}
+
+th, td {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+  -moz-border-top-colors: none;
+  border-top-colors: none;
+  -moz-border-right-colors: none;
+  border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-left-colors: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  padding-top: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p, fieldset, table, pre {
+  margin-bottom: 1em;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 12.25em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+.navbar:hover {
+  font-weight: normal;
+}
+
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
+.store:hover {
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
+  font-weight: normal;
+}
+
+.contact {
+  font-weight: normal;
+}
+
+.versionnum {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
+}
+
+.releasecontent {
+  font-size: medium;
+}
+
+.modrev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: small;
+  color: #3333ff;
+}
+
+.selectrev {
+  font-weight: normal;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
+}  
+  
+[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
+  
+
+
+Setting up Closed Loop Idle Control on Modular
+              ECUs
+
+[go back to
+                support home](EN_EUGENE_MOD_HOME.md)
+
+![image](../images/Eugene/Eugene250.png)  
+
+
+[Setting
+                up Open Loop Idle Control](EN_MOD_025_IDLEOPENLOOP.md)[ ](EN_EUGENE_ABOUT.md)
+
+[  
+
+              ](EN_EUGENE_KBSC_TG.md)
+
+  
+
+
+[  
+
+              ](EN_SelFW.md)
+
+  
+
+
+  
+  
+[](https://youtu.be/H9S-2sg3Z3A)  
+  
+  
+  
+Closed loop idle control is one of
+                  the things that makes a car nice to drive when it’s set up
+                  nicely and working correctly. So in this article we’ll
+                  describe what you need to do to set it up.  
+Firstly, the ECU needs to know whether to go into
+                  closed loop idle or not. I’ve explained this in other places
+                  but for the sake of completeness I’ll include it here as well.
+                  It’s not enough to know that the throttle is closed, for the
+                  following reason. Imagine you’re in a situation where you’re
+                  in gear, for example at 2000 RPM, coming to a stop sign. Your
+                  foot is off the throttle. If the ECU went into closed loop
+                  idle in this circumstance, it would see that the engine is at
+                  2000 RPM, which is too high compared to the target of 800 RPM,
+                  so it would reduce the idle effort. The RPM would remain
+                  unchanged so it would reduce the idle effort further.
+                  Eventually the idle effort would be all the way down to zero
+                  but the RPM would still be too high. Then as you put your foot
+                  on the clutch to stop at the stop sign, the engine stalls
+                  because the idle effort is zero where it might actually need
+                  40% to idle properly.  
+  
+Really the ECU needs to know if the engine is at the
+                  current RPM because it’s idling there, or because it’s being
+                  driven there by some outside force, like the wheels. Some cars
+                  are set up nicely from the factory and include a clutch switch
+                  and a neutral switch so that the ECU can tell if the engine is
+                  disconnected from the wheels, and will only go into closed
+                  loop idle if either the clutch is pressed or the gearbox is in
+                  neutral. Many other manufacturers don’t have these, but they
+                  have a vehicle speed input to the ECU, and the ECU will only
+                  go into closed loop idle if it detects the car is stationary.  
+  
+The Modular ECU will go into closed loop in either
+                  of these conditions, but also the throttle must be closed
+                  (that is, the CLOSED THROTTLE flag on the TPS inputs page must
+                  be active), and either it must have fallen close to the target
+                  idle RPM, or if it hasn’t, then these conditions must have
+                  been met for a minimum amount of time, which is called the
+                  neutral timeout. The neutral timeout must be set so that the
+                  engine has enough time to fall from maximum RPM back to idle;
+                  otherwise the ECU will go into closed loop before the engine
+                  has got back down to idle, with a corresponding dip in the
+                  RPM, or possibly even a stall. A value of 5 seconds would be
+                  typical.  
+  
+![1_neutraltimeout](../images/026_IdleClosedLoop/1_neutraltimeout.png)![2_closedthrottleflag](../images/026_IdleClosedLoop/2_closedthrottleflag.png)  
+  
+Let’s look at the settings required. Firstly we need
+                  to enable closed loop idle.  
+  
+![1_neutraltimeout](../images/026_IdleClosedLoop/1_neutraltimeout.png)  
+  
+Secondly, we need to have our target idle speeds set
+                  in the target idle speed table. These can be varied against
+                  coolant temperature, and overridden by electrical loads, air
+                  conditioner activation and so on.  
+  
+![4_targetidlespeed](../images/026_IdleClosedLoop/4_targetidlespeed.png)![4-1_targetidlespeed](../images/026_IdleClosedLoop/4-1_targetidlespeed.png)  
+  
+Next, we need to make sure that our closed loop
+                  conditions are configured correctly. If your car has neutral
+                  or clutch switches, then they can be connected to a digital
+                  input and configured as “clutch” type input. Functionally they
+                  mean the same thing, so they can usually be connected in
+                  parallel to the one input unless you have some other reason
+                  not to. If you don’t, then you will need to have a working
+                  wheel speed sensor input, and there’s another article
+                  explaining how to set this up.  
+  
+![5_clutch](../images/026_IdleClosedLoop/5_clutch.png)  
+  
+Also please check that the closed throttle flag is
+                  working correctly. Sometimes aftermarket throttles get sticky
+                  and don’t always return to the same position, and sometimes
+                  there’s backlash between the throttle shaft and the sensor
+                  which means the TPS reading doesn’t reliably go back to zero
+                  when you close the throttle. Issues like this will cause
+                  problems setting up closed loop idle.  
+  
+![6_closedthrottlepercetage](../images/026_IdleClosedLoop/6_closedthrottlepercetage.png)  
+  
+The neutral timeout has to be set, as I mentioned
+                  before, about 5 seconds is a good time.  
+  
+Now the last settings we need to set are the PID
+                  gains. I did a talk at PRI in 2016 about PID control and what
+                  they all mean, so I won’t describe PID here. Typical values
+                  I’ve used are 1, 2, 0.15 for PID on Mazda 13B engines, and
+                  about 2, 5, 2 on Nissan RB engines.  
+  
+![7_MazdaPID](../images/026_IdleClosedLoop/7_MazdaPID.png)![8_NissanPID](../images/026_IdleClosedLoop/8_NissanPID.png)  
+  
+Now, the last thing I’d say is that the Modular ECU
+                  actually has 2 stages of closed loop idle control, and this is
+                  to help the engine come down to idle nicely. The first stage
+                  is activated as soon as the throttle is closed and the car is
+                  either in neutral/clutch is depressed, or the car is
+                  stationary, and this called “IDLE DERIVATIVE”. If you watch
+                  the flags on the closed loop idle screen, you’ll see this one
+                  come on first of all, basically as soon as you take your foot
+                  off the throttle on a free rev. In this condition, the ECU
+                  calculates only the derivative term, not the proportional and
+                  integral terms, of the PID controller. This helps the engine
+                  come back to idle gently. So if the engine wants to dip or
+                  stall when coming back to idle, and you’re sure that the fuel
+                  map is solid on the way back to idle, then increasing the
+                  differential gain can often help with this. The limit to how
+                  high you can increase it will be the fact that if you increase
+                  it too high, you’ll get a hunt at idle.  
+  
+![9_idlederivative](../images/026_IdleClosedLoop/9_idlederivative.png)  
+  
+Try to get the majority of the control done with the
+                  proportional term, and use the differential term to stop the
+                  hunting as far as you can. Similarly increase the integral
+                  term as high as you can, but you’ll be limited by hunting that
+                  will occur if you increase it too high.  
+  
+The last point to discuss is ignition timing at
+                  idle.  
+  
+The default operation of the ECU is that it uses the
+                  main ignition map at the idle condition, just as at any other
+                  condition, however when the ECU is in closed loop idle, it can
+                  adjust the ignition timing to stabilise the idle speed.  
+  
+In this mode, the “Separate ignition timing table”
+                  is deselected, and the idle ignition table is a table of the
+                  ignition timing change as a function of the RPM error. RPM
+                  error is defined as the actual RPM minus the target, for
+                  example +200 means that the engine is 200 RPM above the
+                  target.  So in general you’d have about +10° at -200 RPM,
+                  sliding down to 0° at 0 RPM, and -10° at +200 RPM. I have not
+                  found an engine yet whose idle smoothness did not benefit from
+                  ignition timing to correct the idle speed.  
+  
+![10_idleignitiontimingtrim](../images/026_IdleClosedLoop/10_idleignitiontimingtrim.png)![10-1_idleignitiontimingtrim](../images/026_IdleClosedLoop/10-1_idleignitiontimingtrim.png)  
+  
+Another method, which has been requested by one of
+                  our customers, is to have a “separate ignition timing table”,
+                  in which case instead of making a correction to the ignition
+                  map, the ECU just looks at this separate ignition timing map
+                  when the ECU is in closed loop idle mode. In this case, you
+                  can choose whether the timing is dependent on the actual RPM,
+                  or the RPM error, and then the idle ignition timing table
+                  becomes the actual ignition timing.  
+  
+![11_separateignitionmap](../images/026_IdleClosedLoop/11_separateignitionmap.png)![11-1_separateignitionmap](../images/026_IdleClosedLoop/11-1_separateignitionmap.png)![11-2_separateignitionmap](../images/026_IdleClosedLoop/11-2_separateignitionmap.png)  
+  
+Main problems that you might encounter with setting
+                  up closed loop idle are an idle hunt. In this case firstly you
+                  need to ensure that it is actually caused by the idle control
+                  – ie, if you disable the closed loop idle, the hunt goes away.
+                  If so, that means that one or more of your PID gains are too
+                  high, or possibly your D gain is too low. In this case,
+                  setting PID gains to zero means that you don’t have the
+                  problem, and with the PID gains you had, the problem occurs,
+                  so you can find a happy median between the two.  
+  
+![12_setPIDtozero](../images/026_IdleClosedLoop/12_setPIDtozero.png)  
+  
+The other problem you might get is a dip or stall on
+                  return to idle. For this problem, it could be caused by
+                  several causes, the most likely being the fuel map being too
+                  lean on return to idle. However if you take a log and see the
+                  idle effort going lower than it should be and that’s what
+                  causing the dip, then it’s probably going into closed loop
+                  idle too early and you should try increasing the neutral
+                  timeout. The other common cause is if the ECU is going into
+                  closed loop idle when the engine is not idling, for example
+                  throttle-off while driving as I mentioned at the start of the
+                  article, in which case you need to check that your
+                  neutral/clutch inputs (if available) are working correctly and
+                  your vehicle speed input is also working correctly. This also
+                  should be evident in the log file, because if you graph RPM
+                  and idle effort, it should be obvious where you’re cruising,
+                  driving with your foot off the throttle, and the idle effort
+                  shouldn’t be changing during this time except for engine loads
+                  like air conditioner cycling and so on. In the log you can
+                  also look at the idle effort correction only due to the closed
+                  loop, which should definitely not be changing during this
+                  time.  
+Thank you and happy learning!  
+©2018
+        Adaptronic  

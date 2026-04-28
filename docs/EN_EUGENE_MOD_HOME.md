@@ -1,4 +1,4 @@
-Eugene Support Home/*
+Modular Support Home/*
 
 Copyright (c) 2008, Yahoo! Inc. All rights reserved.
 
@@ -121,100 +121,113 @@ input[type="text"], input[type="password"], textarea {
   width: 12.25em;
 }
 
-.Maintitle {
-  font-size: medium;
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
   font-weight: bold;
 }
 
-.downlods {
-  font-size: small;
-}
-
-.store {
-  font-size: x-small;
-  background-color: black;
-  color: white;
-}
-
-.downloads:hover {
-  background-color: black;
-  font-weight: bold;
-}
-
-.downloads {
-  background-color: black;
-  color: white;
-  font-size: small;
+.navbar:hover {
   font-weight: normal;
 }
 
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
 .store:hover {
-  background-color: black;
-  color: white;
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
   font-weight: normal;
 }
 
 .contact {
-  color: white;
-  font-size: x-small;
-  background-color: black;
   font-weight: normal;
 }
 
-.contact:hover {
-  background-color: black;
+.versionnum {
+  font-size: large;
+  color: black;
   font-weight: bold;
 }
 
-.sotre {
-  background-color: black;
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
 }
 
-.none {
-  color: white;
-  font-size: x-small;
+.releasecontent {
+  font-size: medium;
 }
 
-.downloads1 {
+.modrev {
+  font-style: normal;
   font-weight: normal;
+  font-size: small;
+  color: #3333ff;
 }
 
-.downloads1:hover {
-  font-weight: bold;
-}
-
-.store1:hover {
-  font-weight: bold;
-}
-
-.store1 {
+.selectrev {
   font-weight: normal;
-  color: white;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
 }  
-[DOWNLOADS](#)[STORE](#)[CONTACT
-          US](#)  
   
-[  
-
-          ](#)
-# Eugene Support Home
-
-
+[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
   
 
 
-Need help configuring your
-                  Adaptronic ECU? Click an image below :
+Modular Support Home
 
-[![](file:///C:/New%20Help/images/Eugene/Eugene250.png)](#)
+[go back to support
+                home](EN_EUGENE_HOME.md)
 
-[![modimg](images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
+![image](../images/Eugene/Eugene250.png)  
 
 
-[![selimg](images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
+Engine
+                  information
 
-Want to learn more about Eugene
-                  and its included software?
+  
+Input calibrations
 
   
 
@@ -228,7 +241,14 @@ Want to learn more about Eugene
   
 
 
-What's New?
+  
+
+
+  
+
+
+  
+
 
   
 
@@ -239,32 +259,345 @@ What's New?
   
 
 
-Want info on previous Eugene
-                  releases? Click[here](EN_EUGENE_PREVIOUS.md).
-- [How to
-                  use Eugene, the basics.](EN_EUGENE_ABOUT.md)
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+Setting up
+                  Outputs
+
+  
+
+
+  
+
+
+  
+
+
+Setting up
+                  Functions
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+Tuning Fuel
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+Tuning
+                  Ignition
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+Tuning Air
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+Wiring and
+                  Installation  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+Still haven't
+                  found what you're looking for? You can either click[here](#), email us at[tech@adaptronic.com.au](#),
+                  or use the Eugene Support page to send us a support ticket.
+
+[Back to top](EN_EUGENE_MOD_HOME.html#top)  
+  
+  
+
+- [Triggering](EN_MOD_009_TRIGGERING.md)
+- [Basic
+                          Engine Setup](EN_MOD_010_BASICENGINESETUP.md)
+- [Base
+                          Timing](EN_MOD_012_BASETIMING.md)
+- Analogue Inputs
+- [MAP
+                          Sensors](EN_MOD_008_INPUTS.html#Manifold_pressure)
+- [O2 /
+                          Lambda Sensors](EN_MOD_008_INPUTS.html#Lambda)
+- [Temperature
+                          Sensors](EN_MOD_008_INPUTS.html#Temperature_Inputs)  
+
+- [Liquid
+                          Pressure Sensor](EN_MOD_008_INPUTS.html#Liquid_Pressure_Inputs)
+- [Throttle
+                          Position Sensor](EN_MOD_008_INPUTS.html#Throttle_Position)
+- [External
+                          0-5V Inputs](EN_MOD_008_INPUTS.html#External_0-5V)
+- Servos
+- [Atmospheric
+                          Pressure Sensor](EN_MOD_008_INPUTS.html#Barometric_pressure)
+- Knock Sensor
+- [Ethanol](EN_MOD_028_FLEXFUEL.md)
+- [Wheel
+                        Speed](EN_MOD_005_WHEELSPEED.md)
+- [Turbo
+                          Speed](EN_MOD_045_TURBOSPEED.md)
+- [Digital
+                        inputs](EN_MOD_008_INPUTS.html#Digital_Inputs)related articles:
+- [Handling
+                      Changes in Temperature](EN_MOD_033_AIRANDCOOLANTTEMPERATURECOMPENSRATIONSFORFUEL.md)
+- [TPS Output pin in
+                      Skyline ECUs](EN_MOD_022_TPSOP.md)
+- [Fuel
+                      Pressure in RX7s](EN_MOD_006_FUELPRESSURE_FD.md)  
+  
+
+- Injector output
+- Ignition Output
+- [Auxiliary
+                        Outputs](EN_MOD_024_IDLEOPSWIRING.md)  
+
+- [Power
+                        Cut](EN_MOD_014_ENGINEPROTECTION.md)
+- [Launch
+                        Control/Antilag](EN_MOD_015_LAUNCHCONTROLANTILAG.md)
+- Traction Control
+- Special Functions
+- [Twin
+                          Turbo](EN_MOD_016_TWINTURBO.md)
+- [Fuel
+                          Pump](EN_MOD_017_FUELPUMPEFIRELAY.md)
+- [A/C](EN_MOD_018_ACSETUP.md)
+- [Tacho](EN_MOD_020_TACHO.md)
+- PRCV (Pressure Regulator Control Valve)
+- Turbo Timer
+- Purge Valve
+- Nitrous
+- [Metering
+                          Oil Pump](EN_EUGENE_MOD_MOPMAIN.md)
+- [Thermofan](EN_MOD_023_THERMOFAN.md)
+- Idle Stepper Motor
+- EFI Relay
+- Serial Communications
+- Serial Inputs
+- [Serial
+                          Output](EN_EUGENE_SERIAL_OUT.md)
+- Hand-Controller
+- [CAN](EN_MOD_048_CAN_SETUP.md)related articles:  
+
+- [Serial
+                      Pinout](EN_EUGENE_MOD_SERIAL_PINOUT.md)  
+
 - [The
-                  gauge page](EN_EUGENE_GAUGE_PAGE.md)
-- [Manipulating
-                    tables and graphs](EN_EUGENE_HOW_TABLE_GRAPH.md)
-- [Main
-                  window keyboard shortcuts.](EN_EUGENE_KBSC_MAIN.md)
-- [Table
-                  and graph page keyboard shortcuts](EN_EUGENE_KBSC_TG.md)
-- [Navigating
-                    Eugene menus](EN_MOD_002_HOMERIBBON.md)
-- [Eugene's
-                  auto-updater](EN_EUGENE_UPDATER.md)
-- [Adaptronic
-                  logviewer](EN_EUGENE_LOGVIEWER.md)  
+                        Adaptronic Modular Fuel Model](EN_MOD_029_FUELMODEL.md)
+- [The
+                        Adaptronic Modular Injector Model](EN_MOD_032_INJECTORMODEL.md)
+- [Basic
+                        Setup](EN_MOD_027_FUELTUNINGMODES.md)
+- [Semi-Peripheral
+                          Rotary Tuning](EN_MOD_003_SEMIPP.md)
+- [Fuel Maps](EN_EUGENE_MOD_FUELMAPS.md)
+- Target AFR
+- [Transient
+                        Corrections](EN_MOD_031_THROTTLETRANSIENTS.md)
+- [Cranking
+                        Fuel](EN_MOD_034_CRANKING.md)
+- [Injector
+                        Staging](EN_MOD_013_STAGEDINJECTION.md)
+- [Injection
+                        Timing](EN_MOD_035_INJECTORTIMING.md)
+- Temperature Correction
+- [Closed
+                        Loop Fuel](EN_MOD_037_CLOSEDLOOPFUEL.md)
+- [Selecting
+                        Injectors](EN_MOD_040_INJECTOR_SELECTIONINSW.md)
+- [Flex Fuel](EN_MOD_028_FLEXFUEL.md)  
+  
 
-- [Eugene
-                  release notes](EN_EUGENE_RELEASE_NOTES.md)
-- [Modular
-                  firmware changelog](EN_ModFW.md)
-- [Select
-                  firmware changelog](EN_SelFW.md)
+- [Basic
+                        Setup and Tuning Modes  
+
+                      ](EN_MOD_038_IGNITIONTUNINGMODES.md)
+- Ignition Maps
+- Temperature Correction
+- Knock
+- Spark Split  
+
 
   
+
+- Idle
+- [Closed
+                          Loop](EN_MOD_026_IDLECLOSEDLOOP.md)
+- [Open
+                          Loop](EN_MOD_025_IDLEOPENLOOP.md)
+- Boost
+- [Open
+                          Loop](EN_MOD_039_OPENLOOPBOOSTCONTROL.md)
+- [Target
+                          Boost](EN_MOD_043_TARGETBOOST.md)
+- VVT (Variable Valve Timing)
+- E-Throttle  
   
-©2018 Adaptronic  
+
+- [Adding
+                      modules](EN_MOD_019_ADDINGMODULES.md)
+- [Grounding](EN_MOD_007_GROUNDING.md)
+- Wifi Settings  
+  
+  
+  
+  
+©2018
+        Adaptronic  

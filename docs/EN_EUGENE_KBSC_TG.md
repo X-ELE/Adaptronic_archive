@@ -1,4 +1,4 @@
-Eugene Support Home/*
+Eugene Data Table and 3D Graph Shortcuts/*
 
 Copyright (c) 2008, Yahoo! Inc. All rights reserved.
 
@@ -121,150 +121,163 @@ input[type="text"], input[type="password"], textarea {
   width: 12.25em;
 }
 
-.Maintitle {
-  font-size: medium;
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
   font-weight: bold;
 }
 
-.downlods {
-  font-size: small;
-}
-
-.store {
-  font-size: x-small;
-  background-color: black;
-  color: white;
-}
-
-.downloads:hover {
-  background-color: black;
-  font-weight: bold;
-}
-
-.downloads {
-  background-color: black;
-  color: white;
-  font-size: small;
+.navbar:hover {
   font-weight: normal;
 }
 
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
 .store:hover {
-  background-color: black;
-  color: white;
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
   font-weight: normal;
 }
 
 .contact {
-  color: white;
-  font-size: x-small;
-  background-color: black;
   font-weight: normal;
 }
 
-.contact:hover {
-  background-color: black;
+.versionnum {
+  font-size: large;
+  color: black;
   font-weight: bold;
 }
 
-.sotre {
-  background-color: black;
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
 }
 
-.none {
-  color: white;
-  font-size: x-small;
+.releasecontent {
+  font-size: medium;
 }
 
-.downloads1 {
+.modrev {
+  font-style: normal;
   font-weight: normal;
+  font-size: small;
+  color: #3333ff;
 }
 
-.downloads1:hover {
-  font-weight: bold;
-}
-
-.store1:hover {
-  font-weight: bold;
-}
-
-.store1 {
+.selectrev {
   font-weight: normal;
-  color: white;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
 }  
-[DOWNLOADS](#)[STORE](#)[CONTACT
-          US](#)  
   
+[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
+  
+
+
+Keyboard Shortcuts - Data Table and 3D Graphs
+
+[go back to support
+                home](EN_EUGENE_HOME.md)
+
+![image](../images/Eugene/Eugene250.png)  
+
+
+[Eugene Basics  
+
+              ](EN_EUGENE_ABOUT.md)
+
+[Keyboard
+                shortcuts - Main window  
+
+              ](EN_EUGENE_KBSC_MAIN.md)
+
+[Manipulating
+                tables and graphs  
+
+              ](EN_EUGENE_HOW_TABLE_GRAPH.md)
+
+  
+
+
 [  
 
-          ](#)
-# Eugene Support Home
-
-
-  
-
-
-Need help configuring your
-                  Adaptronic ECU? Click an image below :
-
-[![](file:///C:/New%20Help/images/Eugene/Eugene250.png)](#)
-
-[![modimg](images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
-
-
-[![selimg](images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
-
-Want to learn more about Eugene
-                  and its included software?
+              ](EN_SelFW.md)
 
   
 
 
   
-
-
-  
-
-
-  
-
-
-What's New?
-
-  
-
-
-  
-
-
-  
-
-
-Want info on previous Eugene
-                  releases? Click[here](EN_EUGENE_PREVIOUS.md).
-- [How to
-                  use Eugene, the basics.](EN_EUGENE_ABOUT.md)
-- [The
-                  gauge page](EN_EUGENE_GAUGE_PAGE.md)
-- [Manipulating
-                    tables and graphs](EN_EUGENE_HOW_TABLE_GRAPH.md)
-- [Main
-                  window keyboard shortcuts.](EN_EUGENE_KBSC_MAIN.md)
-- [Table
-                  and graph page keyboard shortcuts](EN_EUGENE_KBSC_TG.md)
-- [Navigating
-                    Eugene menus](EN_MOD_002_HOMERIBBON.md)
-- [Eugene's
-                  auto-updater](EN_EUGENE_UPDATER.md)
-- [Adaptronic
-                  logviewer](EN_EUGENE_LOGVIEWER.md)  
-
-- [Eugene
-                  release notes](EN_EUGENE_RELEASE_NOTES.md)
-- [Modular
-                  firmware changelog](EN_ModFW.md)
-- [Select
-                  firmware changelog](EN_SelFW.md)
-
   
   
-©2018 Adaptronic  
+[Function Shortcuts](EN_EUGENE_KBSC_TG.html#fx)  
+[3D Graph Shortcuts](EN_EUGENE_KBSC_TG.html#3d)  
+  
+NavigationLEFT ARROWMoves cursor by 1 cell
+                        to the leftRIGHT ARROWMoves cursor by 1 cell to the rightUP ARROWMoves cursor by 1 cell to the row aboveDOWN ARROWMoves cursor by 1 cell to the row belowCTRL + LEFT ARROWMoves cursor to the
+                        cell on the first columnCTRL + RIGHTmoves cursor to the
+                        cell on the last columnCTRL + UPMoves to the cell
+                         on the first rowCTRL + DOWNMoves to the cell on
+                        the last rowSHIFT + LEFT/RIGHTSelect multiple
+                        cells horizontallySHIFT + UP/DOWNSelect multiple
+                        cells verticallySHIFT + CTRL + ARROW
+                        KeysSelects mutiple
+                        cells up to table edgesSPACEBARSelects active cell when ECU is connectedSHIFT + SPACEBARSelects groups of cells adjacent to active cell[]()FunctionsWSelect allTMap traceEClear map traceRApplies computed fuel values based on average AFR
+                        and target on traced cells(Note:
+only
+                          available in fuel map tables)LInterpolate from cornersYInterpolate columnsXInterpolate rowsPAdd / subract percentages on the selected cellsPAGE UP or +Increases selected cell values by preset
+                        incrementPAGE DOWN or -Decreases selected cell values by preset
+                        incrementCTRL + PAGE UP or  
+CTRL + +Increases selected cell values by a tenth of
+                        preset incrementCTRL + PAGE DOWN or  
+CTRL + -Decreases selected cell values by a tenth of
+                        preset incrementINSERTInsert columnDELETEDelete columnSHIFT + INSERTInsert rowSHIFT + DELETEDelete rowDToggle Speed Copy ModeCTRL + CCopy cell valuesCTRL + VPaste cell valuesALT + XInvert X-axisALT + YInvert Y-axisSHIFT + XChange X-axis step sizeSHIFT + YChange Y-axis step sizeMMark
+                        as tuned(Modular / Select
+                          Fuel Maps)UMark as untuned(Modular
+                          / Select Fuel Maps)[]()The following shortcuts are only for 3D
+                          graphsALT + LEFT ARROWRotate graph to the leftALT + RIGHT ARROWRotate graph to the rightALT + UP ARROWRotate graph upwardALT + DOWN ARROWRotate graph downwardALT + SPACEBARReset graph position  
+  
+  
+  
+©2018
+        Adaptronic  

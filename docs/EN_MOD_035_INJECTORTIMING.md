@@ -1,4 +1,4 @@
-Eugene Support Home/*
+Injection Timing on Port Injected Engines on Modular ECUs/*
 
 Copyright (c) 2008, Yahoo! Inc. All rights reserved.
 
@@ -121,150 +121,205 @@ input[type="text"], input[type="password"], textarea {
   width: 12.25em;
 }
 
-.Maintitle {
-  font-size: medium;
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
   font-weight: bold;
 }
 
-.downlods {
-  font-size: small;
-}
-
-.store {
-  font-size: x-small;
-  background-color: black;
-  color: white;
-}
-
-.downloads:hover {
-  background-color: black;
-  font-weight: bold;
-}
-
-.downloads {
-  background-color: black;
-  color: white;
-  font-size: small;
+.navbar:hover {
   font-weight: normal;
 }
 
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
 .store:hover {
-  background-color: black;
-  color: white;
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
   font-weight: normal;
 }
 
 .contact {
-  color: white;
-  font-size: x-small;
-  background-color: black;
   font-weight: normal;
 }
 
-.contact:hover {
-  background-color: black;
+.versionnum {
+  font-size: large;
+  color: black;
   font-weight: bold;
 }
 
-.sotre {
-  background-color: black;
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
 }
 
-.none {
-  color: white;
-  font-size: x-small;
+.releasecontent {
+  font-size: medium;
 }
 
-.downloads1 {
+.modrev {
+  font-style: normal;
   font-weight: normal;
+  font-size: small;
+  color: #3333ff;
 }
 
-.downloads1:hover {
-  font-weight: bold;
-}
-
-.store1:hover {
-  font-weight: bold;
-}
-
-.store1 {
+.selectrev {
   font-weight: normal;
-  color: white;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
 }  
-[DOWNLOADS](#)[STORE](#)[CONTACT
-          US](#)  
   
+[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
+  
+
+
+Injection Timing on Port Injected Engines on
+              Modular ECUs
+
+[go back to
+                support home](EN_EUGENE_MOD_HOME.md)
+
+![image](../images/Eugene/Eugene250.png)  
+
+
+[Staged
+                Injection](EN_MOD_013_STAGEDINJECTION.md)[ ](EN_EUGENE_ABOUT.md)
+
+[Selecting
+                Injectors  
+
+              ](EN_MOD_040_INJECTOR_SELECTIONINSW.md)
+
+  
+
+
 [  
 
-          ](#)
-# Eugene Support Home
-
-
-  
-
-
-Need help configuring your
-                  Adaptronic ECU? Click an image below :
-
-[![](file:///C:/New%20Help/images/Eugene/Eugene250.png)](#)
-
-[![modimg](images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
-
-
-[![selimg](images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
-
-Want to learn more about Eugene
-                  and its included software?
+              ](EN_SelFW.md)
 
   
 
 
   
-
-
-  
-
-
-  
-
-
-What's New?
-
-  
-
-
-  
-
-
-  
-
-
-Want info on previous Eugene
-                  releases? Click[here](EN_EUGENE_PREVIOUS.md).
-- [How to
-                  use Eugene, the basics.](EN_EUGENE_ABOUT.md)
-- [The
-                  gauge page](EN_EUGENE_GAUGE_PAGE.md)
-- [Manipulating
-                    tables and graphs](EN_EUGENE_HOW_TABLE_GRAPH.md)
-- [Main
-                  window keyboard shortcuts.](EN_EUGENE_KBSC_MAIN.md)
-- [Table
-                  and graph page keyboard shortcuts](EN_EUGENE_KBSC_TG.md)
-- [Navigating
-                    Eugene menus](EN_MOD_002_HOMERIBBON.md)
-- [Eugene's
-                  auto-updater](EN_EUGENE_UPDATER.md)
-- [Adaptronic
-                  logviewer](EN_EUGENE_LOGVIEWER.md)  
-
-- [Eugene
-                  release notes](EN_EUGENE_RELEASE_NOTES.md)
-- [Modular
-                  firmware changelog](EN_ModFW.md)
-- [Select
-                  firmware changelog](EN_SelFW.md)
-
   
   
-©2018 Adaptronic  
+  
+  
+This article is very brief and just
+                  covers the timing of injector outputs on port injection
+                  engines. It does not cover direct injection systems.  
+  
+Injector timing on the Modular ECUs can be mapped
+                  against RPM and load, and the number represents the end of the
+                  injection pulse in degrees BTDC.  
+  
+![1_injectorprimary](../images/035_InjectorTiming/1_injectorprimary.png)  
+  
+Injector Timing Table  
+  
+On a staged injection engine, you can set the
+                  injection timing separately for each stage, to promote better
+                  mixing, minimise water hammer in the fuel rails and so–on.  
+  
+![2_injectorstaging](../images/035_InjectorTiming/2_injectorstaging.png)  
+  
+Number of injection stages can be found under “Injector
+                    Staging”  
+  
+![3_stages](../images/035_InjectorTiming/3_stages.png)  
+  
+Injection timing can be set separately  
+  
+In terms of appropriate values for injection timing,
+                  there are a few possible ways to do it, and to some extent it
+                  depends on what you’re trying to optimise.  
+  
+One technique I’ve seen people do is to adjust the
+                  injection timing until the indicate air-fuel ratio is richest
+                  (given constant fuel delivery), indicating that the combustion
+                  is most complete (least air left over). I don’t know if
+                  corresponds to any other real world effects such as minimum
+                  emissions or maximum torque, both sound reasonable but I won’t
+                  believe it until I see some data.  
+  
+A common technique is to do what they call closed
+                  valve injection, where the end of the injection pulse happens
+                  before the intake valve opens. This requires a value of about
+                  380° or higher. For the off-idle throttle response, 
+                  injection timing can make a big difference and I’ve found
+                  values like 380 work fairly well.  
+  
+Throughout medium to high RPM and on load, injection
+                  timing can have an impact on torque, depending on the engine.
+                  On a production engine it makes less of a difference than on a
+                  high overlap engine in my experience.  
+  
+Another use for adjusting injection timing is to
+                  minimise HC emissions. On a large-overlap engine, for example
+                  an engine with big cams, often emissions will be lower by
+                  injecting the fuel after the exhaust valve has closed. This
+                  means that no fuel can “short circuit” the engine under open
+                  throttle conditions. In tuning cars for emissions I’ve found
+                  this makes a big difference, but you’ll need a 4 or 5 gas
+                  analyser to see it.  
+  
+Rotaries I’ve found like values around 180 degrees
+                  to have decent off-idle response, and side-port engines don’t
+                  seem very sensitive to injection timing. Naturally aspirated
+                  peripheral intake port engines are a different story however.  
+  
+Finally, as I mentioned before you can set the
+                  timing differently on different stages if you want to. When I
+                  tried this on my 13B turbo before she went to a better place,
+                  I didn’t find it made any difference to torque at all, but one
+                  tuner has told me it does so the option is there in case you
+                  need it. At the very least you can ensure that you don’t have
+                  multiple stages with the same end of injection angle adding to
+                  the water hammer effect of the injectors closing.  
+  
+Thank you.  
+  
+©2018
+        Adaptronic  

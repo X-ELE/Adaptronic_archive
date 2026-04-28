@@ -1,4 +1,4 @@
-Eugene Support Home/*
+TPS Output Pin on the Modular Skyline Plug-in ECUs/*
 
 Copyright (c) 2008, Yahoo! Inc. All rights reserved.
 
@@ -121,150 +121,176 @@ input[type="text"], input[type="password"], textarea {
   width: 12.25em;
 }
 
-.Maintitle {
-  font-size: medium;
+.navbar {
+  background-color: black;
+  color: white;
+  font-size: smaller;
+}
+
+.Pagetitle {
+  font-size: large;
   font-weight: bold;
 }
 
-.downlods {
-  font-size: small;
-}
-
-.store {
-  font-size: x-small;
-  background-color: black;
-  color: white;
-}
-
-.downloads:hover {
-  background-color: black;
-  font-weight: bold;
-}
-
-.downloads {
-  background-color: black;
-  color: white;
-  font-size: small;
+.navbar:hover {
   font-weight: normal;
 }
 
+#downloads:hover {
+  font-weight: normal !important;
+  font-size: smaller !important;
+}
+
+.contact:hover {
+  font-weight: bolder;
+}
+
+.downloads:hover {
+  font-weight: bolder;
+}
+
 .store:hover {
-  background-color: black;
-  color: white;
+  font-weight: bolder;
+}
+
+.downloads {
+  font-weight: normal;
+}
+
+.store {
   font-weight: normal;
 }
 
 .contact {
-  color: white;
-  font-size: x-small;
-  background-color: black;
   font-weight: normal;
 }
 
-.contact:hover {
-  background-color: black;
+.versionnum {
+  font-size: large;
+  color: black;
   font-weight: bold;
 }
 
-.sotre {
-  background-color: black;
+.releasedate {
+  font-size: small;
+  font-style: italic;
+  color: black;
 }
 
-.none {
-  color: white;
-  font-size: x-small;
+.releasecontent {
+  font-size: medium;
 }
 
-.downloads1 {
+.modrev {
+  font-style: normal;
   font-weight: normal;
+  font-size: small;
+  color: #3333ff;
 }
 
-.downloads1:hover {
-  font-weight: bold;
-}
-
-.store1:hover {
-  font-weight: bold;
-}
-
-.store1 {
+.selectrev {
   font-weight: normal;
-  color: white;
+  font-style: normal;
+  color: #3333ff;
+  font-size: small;
+}
+
+.yui-u {
+  font-size: medium;
+}
+
+.backhome {
+  font-size: smaller;
+}
+
+.latestrev {
+  font-size: smaller;
+}
+
+.bodytxt1 {
+  font-size: xx-small;
 }  
-[DOWNLOADS](#)[STORE](#)[CONTACT
-          US](#)  
   
+[DOWNLOADS](#)[STORE](#)[CONTACT US](#)  
+  
+
+
+TPS Output Pin on the Modular Skyline Plug-in
+              ECUs
+
+[go back to
+                support home](EN_EUGENE_MOD_HOME.md)
+
+![image](../images/Eugene/Eugene250.png)  
+
+
+[Transient
+                Throttle Conditions and How to set it up](EN_MOD_031_THROTTLETRANSIENTS.md)[
+              ](EN_MOD_031_THROTTLETRANSIENTS.md)
+
 [  
 
-          ](#)
-# Eugene Support Home
-
+              ](EN_EUGENE_KBSC_TG.md)
 
   
 
 
-Need help configuring your
-                  Adaptronic ECU? Click an image below :
+[  
 
-[![](file:///C:/New%20Help/images/Eugene/Eugene250.png)](#)
-
-[![modimg](images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
-
-
-[![selimg](images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
-
-Want to learn more about Eugene
-                  and its included software?
+              ](EN_SelFW.md)
 
   
 
 
   
-
-
-  
-
-
-  
-
-
-What's New?
-
-  
-
-
-  
-
-
-  
-
-
-Want info on previous Eugene
-                  releases? Click[here](EN_EUGENE_PREVIOUS.md).
-- [How to
-                  use Eugene, the basics.](EN_EUGENE_ABOUT.md)
-- [The
-                  gauge page](EN_EUGENE_GAUGE_PAGE.md)
-- [Manipulating
-                    tables and graphs](EN_EUGENE_HOW_TABLE_GRAPH.md)
-- [Main
-                  window keyboard shortcuts.](EN_EUGENE_KBSC_MAIN.md)
-- [Table
-                  and graph page keyboard shortcuts](EN_EUGENE_KBSC_TG.md)
-- [Navigating
-                    Eugene menus](EN_MOD_002_HOMERIBBON.md)
-- [Eugene's
-                  auto-updater](EN_EUGENE_UPDATER.md)
-- [Adaptronic
-                  logviewer](EN_EUGENE_LOGVIEWER.md)  
-
-- [Eugene
-                  release notes](EN_EUGENE_RELEASE_NOTES.md)
-- [Modular
-                  firmware changelog](EN_ModFW.md)
-- [Select
-                  firmware changelog](EN_SelFW.md)
-
   
   
-©2018 Adaptronic  
+  
+  
+This article describes the scaling
+                  of the TPS output on the Modular Skyline plug-in ECUs.  
+  
+The RB26DETT GTR Skylines, that is the R32 to the
+                  R34, had an electronic controller for the transfer case to
+                  select the amount of torque available for the front wheels.
+                  One of the sensors this module relies on is the throttle
+                  position, which is output as a variable voltage from the
+                  factory ECU.  
+  
+The R33 GTST series 2 and later (so that’s the
+                  RB25DET) also had an electrically controlled limited slip
+                  differential, called the A-LSD, and so did the R34 GTT. Its
+                  controller also relies on the TPS output from the ECU. However
+                  the scaling or calibration is different between the different
+                  models.  
+  
+The way this output is generated is with a PWM
+                  output on the ECU. This is converted into a 0-5V voltage using
+                  a circuit inside the ECU and output on the TPS output pin.
+                  This is also fed back into the TPS2 input, which means that
+                  you can monitor this voltage on the F11 window.  
+  
+![f11](../images/022_TPSOP/f11.png)  
+  
+![Aux4](../images/022_TPSOP/Aux4.png)  
+  
+Auxiliary Output 4  
+  
+For this to work, the auxiliary output must be set
+                  to TPS output duty cycle, PWM at 1000 Hz. The only setting
+                  available then is found under functions -> TPS output. The
+                  type you can select is either R23-R34 GTR / R34 GTT, which is
+                  a 1:1 relationship between input voltage and output voltage,
+                  or R33 GTST in which case the output is 0.71 times the input
+                  voltage.  
+  
+![Settings](../images/022_TPSOP/Settings.png)  
+  
+You can check that it’s working by watching the TPS2
+                  voltage in the F11 window in relation to the TPS1 voltage as
+                  you move the accelerator pedal.  
+  
+![TPS2](../images/022_TPSOP/TPS2.png)  
+Thank you and happy learning!  
+©2018
+        Adaptronic  

@@ -206,12 +206,12 @@ input[type="text"], input[type="password"], textarea {
 Need help configuring your
                   Adaptronic ECU? Click an image below :
 
-[![](file:///C:/New%20Help/images/Eugene/Eugene250.png)](#)
+[![](file:///C:/New%20Help/../images/Eugene/Eugene250.png)](#)
 
-[![modimg](images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
+[![modimg](../images/Eugene/ModularECU.png)](EN_EUGENE_MOD_HOME.md)  
 
 
-[![selimg](images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
+[![selimg](../images/Eugene/SelectECU.png)](EN_SEL_HOME.md)
 
 Want to learn more about Eugene
                   and its included software?
