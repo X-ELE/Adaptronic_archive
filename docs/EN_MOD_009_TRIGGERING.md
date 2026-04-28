@@ -12,31 +12,16 @@
   
   
 
-Triggering on Modular ECU
-
-[go back to
-                support home](EN_EUGENE_MOD_HOME.md)  
-
-![image](../images/Eugene/Eugene250.png)
+Triggering on Modular ECU [go back to support home](EN_EUGENE_MOD_HOME.md) ![image](../images/Eugene/Eugene250.png)
   
   
   
 
-[Configuring
-                inputs  
+[Configuring inputs](EN_MOD_008_INPUTS.md)
 
-              ](EN_MOD_008_INPUTS.md)
+[Configuring aux outputs](EN_MOD_011_AUXOUTPUTS.md)
 
-[Configuring
-                aux outputs  
-
-              ](EN_MOD_011_AUXOUTPUTS.md)
-
-  
-
-[  
-
-              ](EN_SelFW.md)
+[  ](EN_SelFW.md)
 
   
 
